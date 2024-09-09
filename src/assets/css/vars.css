@@ -1,0 +1,45 @@
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+}
+
+:root {
+	--bg-main: #f9f8f8;
+	--bg-white: #ffffff;
+	--bg-black: #000000;
+	--bg-grey: #707070;
+
+	--text-white: #ffffff;
+	--text-black: #000000;
+	--text-main: var(--text-black);
+
+	--text-grey: #707070;
+	--text-grey-link: #a09f9f;
+	--text-grey-date: #828282;
+
+	--border-main: #edeaea;
+	--border-black: #000000;
+	--border-secondary: #e7e4e4;
+
+	--radius-8: 8px;
+	--radius-14: 14px;
+}
+
+html,
+body {
+	height: 100%;
+	scroll-behavior: smooth;
+	scroll-padding-top: 0px;
+}
+
+.srOnly {
+	height: 1px;
+	width: 1px;
+	position: absolute;
+	margin: -1px;
+	padding: 0;
+	border: 0;
+	clip: rect(0 0 0 0);
+	overflow: hidden;
+}

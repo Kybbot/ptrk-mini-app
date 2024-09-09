@@ -1,0 +1,64 @@
+.quizzes {
+	position: relative;
+}
+
+.quizzes__header {
+	margin-bottom: 24px;
+}
+
+.quizzes__mainTitle {
+	font-size: 24px;
+	font-weight: 600;
+	line-height: 27px;
+	letter-spacing: -0.03em;
+	margin: 0;
+}
+
+.quizzes__container {
+	display: grid;
+	gap: 16px;
+}
+
+.quizzes__card {
+	padding: 24px;
+	border-radius: 20px;
+	border: 1px solid #00000014;
+	background-color: #ffffff;
+}
+
+.quizzes__title {
+	font-size: 22px;
+	font-weight: 600;
+	line-height: 25px;
+	text-wrap: balance;
+	letter-spacing: -0.03em;
+	margin: 0 0 24px 0;
+}
+
+.quizzes__description {
+	font-size: 14px;
+	line-height: 24px;
+	margin: 0 0 16px 0;
+}
+
+.quizzes__subDescription {
+	font-size: 12px;
+	line-height: 22px;
+	color: #959595;
+	margin: 0 0 24px 0;
+}
+
+.quizzes__link {
+	display: block;
+	font-family: "Inter Tight", sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 20px;
+	color: #000000;
+	text-align: center;
+	text-decoration: none;
+	padding: 12px;
+	border-radius: 14px;
+	border: 1px solid #00000014;
+	background-color: #f8f8f8;
+}

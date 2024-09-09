@@ -1,0 +1,22 @@
+{
+	"name": "ptrk-mini-app-fe",
+	"type": "module",
+	"version": "0.0.1",
+	"scripts": {
+		"dev": "astro dev",
+		"start": "astro dev",
+		"build": "astro check && astro build",
+		"preview": "astro preview",
+		"astro": "astro"
+	},
+	"dependencies": {
+		"@astrojs/check": "^0.9.3",
+		"@types/telegram-web-app": "^7.8.1",
+		"astro": "^4.15.4",
+		"swiper": "^11.1.12"
+	},
+	"devDependencies": {
+		"postcss-sort-media-queries": "^5.2.0",
+		"typescript": "^5.5.4"
+	}
+}

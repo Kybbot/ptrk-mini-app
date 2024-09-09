@@ -1,0 +1,26 @@
+.link {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	font-family: "Inter Tight", sans-serif;
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 24px;
+	text-align: center;
+	text-decoration: none;
+	color: var(--text-white);
+	cursor: pointer;
+
+	padding: 10px 16px;
+	border-style: none;
+	border: 1px solid transparent;
+	border-radius: var(--radius-14);
+	background-color: var(--bg-black);
+}
+
+.link--secondary {
+	color: var(--text-main);
+	background-color: transparent;
+	border: 1px solid var(--border-black);
+}

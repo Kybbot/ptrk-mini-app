@@ -1,0 +1,106 @@
+---
+import { quizIds } from "@/assets/constants/quizIds";
+import { getLangFromUrl, useTranslations } from "@/assets/i18n/utils";
+import { answerAndPoints, questions, sectionsArray } from "@/assets/constants/quiz3";
+
+import MainLayout from "@/layouts/MainLayout.astro";
+
+import Checkboxes from "@/components/Checkboxes.astro";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const toOffset = (sectionIndex: number) => {
+	const res = questions.slice(0, sectionIndex).reduce((a: number, b: any) => a + b.length, 0);
+	return res;
+};
+---
+
+<MainLayout
+	title={t("meta.title-quiz3")}
+	description={t("meta.description-quiz3")}
+	showMobileMenu={false}
+	hideFooter={true}
+	quizContainer={true}
+	alternate="/test-nalichie-trudogolizma"
+>
+	<section class="quiz">
+		<div class="quiz__header">
+			<h1 id={quizIds[3]} data-quizLink="test-nalichie-trudogolizma" class="quiz__titel">
+				{t("quiz3.title")}
+			</h1>
+		</div>
+		<form class="quiz__wrapper" id="quizForm">
+			<div class="quiz__container">
+				<div class="quiz__timeLine">
+					<div class="quiz__progress">
+						{Array.from({ length: questions[0].length }).map(() => <div class="quiz__bar" />)}
+					</div>
+					<p class="quiz__numbers">
+						<span id="answered">1/{questions[0].length}</span>
+					</p>
+				</div>
+
+				{
+					sectionsArray.map((item: number, sectionIndex: number) => (
+						<div id={`content${item + 1}`} class="quiz__questions">
+							{questions[item]?.map((question, index: number) => (
+								<fieldset class="quiz__fieldset">
+									<legend class="quiz__legend">
+										<p>{question[lang]}</p>
+									</legend>
+									<Checkboxes
+										lang={lang}
+										offset={toOffset(sectionIndex)}
+										answerAndPoints={answerAndPoints}
+										questionNum={index + (sectionIndex === 0 ? 0 : toOffset(sectionIndex))}
+									/>
+								</fieldset>
+							))}
+							<fieldset class="quiz__fieldset">
+								<legend class="quiz__legend quiz__legend--big">
+									<p>{t("quiz.save")}</p>
+								</legend>
+								<input
+									required
+									type="email"
+									id="userEmail"
+									name="userEmail"
+									class="quiz__input"
+									autocomplete="email"
+									placeholder={t("quiz.inputPlaceholder")}
+								/>
+								<div class="quiz__buttons">
+									<button id="skipButton" class="button quiz__back quiz__back--active" type="button">
+										{t("quiz.skip")}
+									</button>
+									<button id="submitButton" class="button quiz__submit" type="submit">
+										{t("quiz.submit")}
+									</button>
+								</div>
+							</fieldset>
+						</div>
+					))
+				}
+
+				<p id="quizError" class="quiz__error"></p>
+
+				<div id="quizFooter" class="quiz__footer">
+					<button id="backButton" class="quiz__back" type="button">
+						<svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path
+								d="M3.80916 7L1 4L3.80916 1L4.28131 1.50425L2.27816 3.64347L11 3.64347L11 4.35657L2.27822 4.35657L4.28131 6.49575L3.80916 7Z"
+								fill="#A09F9F"
+								stroke="#A09F9F"
+								stroke-width="0.3"></path>
+						</svg>
+						{t("quiz.back")}
+					</button>
+				</div>
+			</div>
+			<div id="counter" class="[]"></div>
+		</form>
+	</section>
+</MainLayout>
+
+<script src="../../assets/scripts/quiz/quizQuestions.ts"></script>

@@ -1,0 +1,137 @@
+---
+import { getLangFromUrl, useTranslations } from "@/assets/i18n/utils";
+
+type Props = {
+	hideBanner: boolean;
+};
+
+const { hideBanner } = Astro.props;
+
+const lang = getLangFromUrl(Astro.url);
+const locale = lang === "ru" ? "/" : "/ua/";
+const t = useTranslations(lang);
+---
+
+<div id="banner" class={`banner ${hideBanner ? "banner--hide" : ""}`} data-hide={String(hideBanner)}>
+	<a href={`${locale}subbotnik`} class="banner__link">
+		<div class="banner__text banner__text--mobile">
+			<p class="banner__title">{t("banner.title")}</p>
+		</div>
+		<div class="banner__text banner__text--desktop">
+			<p class="banner__title">{t("banner.title")}</p>
+		</div>
+		<!-- <div class="banner__text banner__text--desktop">
+			<p class="banner__title">Я сейчас провожу семинары</p>
+			<p class="banner__description">До следующего семинара осталось</p>
+		</div> -->
+		<!-- <div class="banner__timer">
+			<p class="banner__item">
+				<span id="bannerDayTime" class="banner__item--time">00</span>
+				<span id="bannerDayText" class="banner__item--text">дней</span>
+			</p>
+			<div class="banner__dec">:</div>
+			<p class="banner__item">
+				<span id="bannerHoursTime" class="banner__item--time">00</span>
+				<span id="bannerHoursText" class="banner__item--text">часов</span>
+			</p>
+			<div class="banner__dec">:</div>
+			<p class="banner__item">
+				<span id="bannerMinutesTime" class="banner__item--time">00</span>
+				<span id="bannerMinutesText" class="banner__item--text">минут</span>
+			</p>
+			<div class="banner__dec">:</div>
+			<p class="banner__item">
+				<span id="bannerSecondsTime" class="banner__item--time">00</span>
+				<span id="bannerSecondsText" class="banner__item--text">секунд</span>
+			</p>
+		</div> -->
+		<div class="banner__icon">
+			<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path
+					d="M13.3333 22.6673L20 16.0007L13.3333 9.33398"
+					stroke="white"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"></path>
+			</svg>
+		</div>
+		<p class="banner__button">
+			{t("banner.btn")}
+			<svg
+				width="16"
+				height="16"
+				fill="none"
+				aria-hidden="true"
+				viewBox="0 0 16 16"
+				xmlns="http://www.w3.org/2000/svg"
+			>
+				<path
+					d="M6.66667 11.3327L10 7.99935L6.66667 4.66602"
+					stroke="white"
+					stroke-linecap="round"
+					stroke-linejoin="round"></path>
+			</svg>
+		</p>
+	</a>
+</div>
+
+<script>
+	import { getNoun } from "@/utils/getNoun";
+
+	const dates = ["2024-05-04T18:00:00", "2024-05-11T18:00:00", "2024-05-18T18:00:00", "2024-05-25T18:00:00"];
+
+	let time: string = dates[0];
+
+	for (let i = 0; i < dates.length; i++) {
+		if (new Date(dates[i]).getTime() > new Date().getTime()) {
+			time = dates[i];
+			break;
+		}
+	}
+
+	const bannerDayTime = document.querySelector("#bannerDayTime") as HTMLSpanElement;
+	const bannerDayText = document.querySelector("#bannerDayText") as HTMLSpanElement;
+	const bannerHoursTime = document.querySelector("#bannerHoursTime") as HTMLSpanElement;
+	const bannerHoursText = document.querySelector("#bannerHoursText") as HTMLSpanElement;
+	const bannerMinutesTime = document.querySelector("#bannerMinutesTime") as HTMLSpanElement;
+	const bannerMinutesText = document.querySelector("#bannerMinutesText") as HTMLSpanElement;
+	const bannerSecondsTime = document.querySelector("#bannerSecondsTime") as HTMLSpanElement;
+	const bannerSecondsText = document.querySelector("#bannerSecondsText") as HTMLSpanElement;
+
+	let timerId: NodeJS.Timeout;
+
+	const updateBanner = () => {
+		if (time) {
+			const currentDate = new Date();
+			const finalDate = new Date(time);
+			const diff = +finalDate - +currentDate;
+			if (diff <= 0) {
+				clearInterval(timerId);
+				return;
+			}
+			const daysLeft = Math.floor(diff / 1000 / 60 / 60 / 24);
+			const hoursLeft = Math.floor(diff / 1000 / 60 / 60) % 24;
+			const minutesLeft = Math.floor(diff / 1000 / 60) % 60;
+			const secondsLeft = Math.floor(diff / 1000) % 60;
+			bannerDayTime.textContent = daysLeft < 10 ? `0${daysLeft}` : `${daysLeft}`;
+			bannerDayText.textContent = `${getNoun(daysLeft, "день", "дня", "дней")}`;
+			bannerHoursTime.textContent = hoursLeft < 10 ? `0${hoursLeft}` : `${hoursLeft}`;
+			bannerHoursText.textContent = `${getNoun(hoursLeft, "час", "часа", "часов")}`;
+			bannerMinutesTime.textContent = minutesLeft < 10 ? `0${minutesLeft}` : `${minutesLeft}`;
+			bannerMinutesText.textContent = `${getNoun(minutesLeft, "минута", "минуты", "минут")}`;
+			bannerSecondsTime.textContent = secondsLeft < 10 ? `0${secondsLeft}` : `${secondsLeft}`;
+			bannerSecondsText.textContent = `${getNoun(secondsLeft, "секунда", "секунды", "секунд")}`;
+		}
+	};
+
+	updateBanner();
+
+	timerId = setInterval(updateBanner, 1000);
+
+	const banner = document.querySelector("#banner") as HTMLDivElement;
+	const hideBanner = banner.dataset.hide;
+
+	if (hideBanner === "true") {
+		clearInterval(timerId);
+	}
+</script>

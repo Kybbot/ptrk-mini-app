@@ -1,0 +1,12 @@
+---
+import { getLangFromUrl } from "@/assets/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const locale = lang === "ru" ? "/" : "/ua/";
+---
+
+<header class="header">
+	<div class="header__container">
+		<a href={`${locale}`} class="header__link">ptrk.fm</a>
+	</div>
+</header>

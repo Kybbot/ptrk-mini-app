@@ -1,0 +1,141 @@
+---
+import { quiz, finalRatings } from "@/assets/constants/quiz2";
+import { getLangFromUrl, useTranslations } from "@/assets/i18n/utils";
+
+import MainLayout from "@/layouts/MainLayout.astro";
+
+import ProductsSlider from "@/components/ProductsSlider.astro";
+
+import getQuizResult from "@/utils/getQuizResult";
+
+import { type SubmitQuiz2 } from "@/@types/quizzes";
+
+const { id } = Astro.params;
+
+let result: SubmitQuiz2["submit"] | null;
+
+try {
+	result = await getQuizResult(`/quiz/submit/${id}`);
+} catch (error) {
+	result = null;
+}
+
+const ratings = finalRatings;
+
+const lang = getLangFromUrl(Astro.url);
+const locale = lang === "ru" ? "/" : "/ua/";
+const t = useTranslations(lang);
+---
+
+<MainLayout
+	title={`${t("quiz.results")} | ${t("quiz2.title")}`}
+	description={t("meta.description-quiz_results")}
+	showMobileMenu={false}
+	hideFooter={true}
+	quizContainer={true}
+	containerClass="quiResult"
+>
+	<section class="quiResult__container">
+		<a href={`${locale}`} class="quiResult__back">
+			<svg
+				width="12"
+				height="8"
+				fill="none"
+				viewBox="0 0 12 8"
+				aria-hidden="true"
+				xmlns="http://www.w3.org/2000/svg"
+			>
+				<path
+					d="M3.80916 7L1 4L3.80916 1L4.28131 1.50425L2.27816 3.64347L11 3.64347L11 4.35657L2.27822 4.35657L4.28131 6.49575L3.80916 7Z"
+					fill="#A09F9F"
+					stroke="#A09F9F"
+					stroke-width="0.3"></path>
+			</svg>
+			{t("quiz.backToMain")}
+		</a>
+		<div class="quiResult__header">
+			<h1 class="quiResult__titel">{quiz.shortTitle[lang]}</h1>
+			<p class="quiResult__subTitle">{result ? t("quiz.resultHeader") : t("quiz.errorResultHeader")}</p>
+			<p class="quiResult__description">{t("quiz.description")}</p>
+			<p class="quiResult__about">
+				<span class="quiResult__circle quiResult__circle--red"></span>
+				{t("quiz.about1")}
+			</p>
+			<p class="quiResult__about">
+				<span class="quiResult__circle quiResult__circle--green"></span>
+				{t("quiz.about2")}
+			</p>
+		</div>
+		{
+			result ? (
+				<main class="quiResult__mian">
+					{ratings.map((item, index) => (
+						<>
+							{item[0].description ? (
+								<p class="quiResult__subDescription">
+									<span class="quiResult__subDescription--bold">{item[0].description[lang][0]}</span>
+									{item[0].description[lang][1]}
+									<span class="quiResult__subDescription--bold">{item[0].description[lang][2]}</span>
+									{item[0].description[lang][3]}
+								</p>
+							) : null}
+						</>
+						<div class="details quiResult__results">
+							{item.map((rating, subIndex) => (
+								<div class={`details__container`} >
+									<button class="details__button" type="button">
+										<span class="details__button--span">
+											<span class={`quiResult__circle ${result.result[(index * 2) + subIndex] > 3 ? "quiResult__circle--red" : "quiResult__circle--green"}`}></span>
+											{rating.result[lang] || ""} - {result.result[(index * 2) + subIndex]}
+										</span>
+										<svg
+											class="details__svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											xmlns="http://www.w3.org/2000/svg"
+										>
+											<g opacity="0.3">
+												<path
+													d="M7 10L12 15L17 10"
+													stroke="black"
+													stroke-width="1.5"
+													stroke-linecap="round"
+													stroke-linejoin="round"
+												/>
+											</g>
+										</svg>
+									</button>
+									<div class={`details__wrapper`}>
+										{rating.characteristics[lang].map((item) => (
+											<p class="details__p">{item}</p>
+										))}
+									</div>
+								</div>
+							))}
+						</div>
+					))}
+					<button type="button" class="button quiResult__btn therapyBtn">
+						{t("quiz.therapyBtn")}
+					</button>
+					<ProductsSlider id="quiResultSwiper" utmContent="quiz2Result" className="quiResult__slider" />
+					<p class="quiResult__share">{t("quiz.resultShare")}</p>
+					<button class="link link--secondary quiResult__link" type="button">
+						{t("quiz.resultLink")}
+						<svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path
+								d="M4.16602 10.1663V16.833C4.16602 17.275 4.34161 17.699 4.65417 18.0115C4.96673 18.3241 5.39065 18.4997 5.83268 18.4997H15.8327C16.2747 18.4997 16.6986 18.3241 17.0112 18.0115C17.3238 17.699 17.4993 17.275 17.4993 16.833V10.1663M14.166 5.16634L10.8327 1.83301M10.8327 1.83301L7.49935 5.16634M10.8327 1.83301V12.6663"
+								stroke="#111111"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+							/>
+						</svg>
+					</button>
+				</main>
+			) : null
+		}
+	</section>
+</MainLayout>
+
+<script src="../../../assets/scripts/quiz/quizResults.ts"></script>

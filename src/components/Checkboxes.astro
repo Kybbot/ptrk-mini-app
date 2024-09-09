@@ -1,0 +1,37 @@
+---
+import { type AnswerAndPointsType } from "@/@types/quizzes";
+
+interface Props {
+	questionNum: number;
+	offset: number;
+	lang: "ua" | "ru";
+	answerAndPoints: AnswerAndPointsType;
+}
+
+const { questionNum, offset, lang, answerAndPoints } = Astro.props;
+
+const answerAndPointsById = answerAndPoints[questionNum - offset];
+---
+
+<div id={`main-container${questionNum}`} class="quiz__question">
+	{
+		answerAndPointsById.points.map((pointsById) => (
+			<>
+				{pointsById ? (
+					<label id={`answer${questionNum}-${pointsById.points}`} class="quiz__label">
+						<input
+							class="quiz__radio"
+							type="radio"
+							name={questionNum.toString()}
+							value={`${questionNum}-${pointsById.points}`}
+						/>
+						<span class="quiz__circle">
+							<span class="quiz__subCircle" />
+						</span>
+						<span>{pointsById.text[lang]}</span>
+					</label>
+				) : null}
+			</>
+		))
+	}
+</div>

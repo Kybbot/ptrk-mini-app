@@ -1,0 +1,77 @@
+---
+export interface Props {
+	title: string;
+	description?: string;
+	canonical?: string;
+	alternate?: string;
+	meta_tags?: string;
+	image?: string;
+}
+
+const {
+	title,
+	description,
+	canonical,
+	alternate,
+	meta_tags,
+	image = "/images/placeholder-social.jpg",
+} = Astro.props;
+---
+
+<!-- Global Metadata -->
+<meta charset="utf-8" />
+<meta name="generator" content={Astro.generator} />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+
+<!-- Primary Meta Tags -->
+<title>{title}</title>
+<meta name="title" content={title} />
+<meta name="description" content={description} />
+<meta name="keywords" content={meta_tags} />
+
+<!-- SEO -->
+<link rel="sitemap" href="/sitemap-index.xml" />
+{
+	canonical && (
+		<Fragment>
+			<meta name="robots" content="index,follow" />
+			<link rel="canonical" href={`${import.meta.env.PUBLIC_SITE_URL}${canonical}`.trim()} />
+		</Fragment>
+	)
+}
+{
+	alternate && (
+		<Fragment>
+			<link rel="alternate" hreflang="ru" href={`${import.meta.env.PUBLIC_SITE_URL}${alternate}`.trim()} />
+			<link rel="alternate" hreflang="uk" href={`${import.meta.env.PUBLIC_SITE_URL}/ua${alternate}`.trim()} />
+			<link
+				rel="alternate"
+				hreflang="x-default"
+				href={`${import.meta.env.PUBLIC_SITE_URL}${alternate}`.trim()}
+			/>
+		</Fragment>
+	)
+}
+
+<!-- Favicon -->
+<link rel="icon" href="/favicon.ico" sizes="32x32" />
+<link rel="icon" href="/icon.svg" type="image/svg+xml" />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content={Astro.url} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={new URL(image, Astro.url)} />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={Astro.url} />
+<meta property="twitter:title" content={title} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={new URL(image, Astro.url)} />
+
+<!-- Scripts -->
+<script defer src="https://telegram.org/js/telegram-web-app.js"></script>
+<script defer data-domain="ptrk.fm" src="https://plausible.io/js/script.js"></script>
+<script defer data-site-id="ptrk.fm" src="https://assets.onedollarstats.com/tracker.js"></script>

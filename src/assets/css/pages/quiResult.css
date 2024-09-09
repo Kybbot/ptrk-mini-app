@@ -1,0 +1,237 @@
+.quiResult {
+	padding: 32px 16px 48px 16px;
+}
+
+.quiResult__header {
+	margin-bottom: 32px;
+}
+
+.quiResult__back {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	padding: 13px 20px;
+	margin-bottom: 32px;
+	border-radius: 32px;
+	border: 1px solid #a09f9f;
+	background-color: transparent;
+	width: fit-content;
+
+	font-family: "Inter Tight", sans-serif;
+	font-size: 14px;
+	line-height: 14px;
+	text-decoration: none;
+	color: var(--text-grey-link);
+
+	cursor: pointer;
+}
+
+.quiResult__titel {
+	font-size: 24px;
+	font-weight: 600;
+	line-height: 26px;
+	letter-spacing: -0.03em;
+	margin: 0 0 16px 0;
+}
+
+.quiResult__subTitle {
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 22px;
+	margin: 0;
+}
+
+.quiResult__description {
+	font-size: 14px;
+	line-height: 20px;
+	margin: 16px 0 24px 0;
+}
+
+.quiResult__about {
+	font-size: 14px;
+	line-height: 24px;
+	color: #747474;
+	margin: 0 0 8px 0;
+	display: flex;
+	align-items: center;
+	gap: 16px;
+}
+
+.quiResult__circle {
+	flex: 0 0 8px;
+	display: inline-block;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+}
+
+.quiResult__circle--red {
+	background-color: #ff0202;
+}
+
+.quiResult__circle--green {
+	background-color: #42d950;
+}
+
+.quiResult__about:last-child {
+	margin: 0;
+}
+
+.quiResult__progress {
+	height: 72px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	margin-bottom: 16px;
+}
+
+.quiResult__line {
+	flex: 1;
+	height: 4px;
+}
+
+.quiResult__line:nth-child(1) {
+	background: linear-gradient(89.98deg, #41d850 0.02%, #fff500 89.63%);
+}
+.quiResult__line:nth-child(2) {
+	background: linear-gradient(89.98deg, #fff501 0.02%, #ffbb6c 89.63%);
+}
+.quiResult__line:nth-child(3) {
+	background: linear-gradient(89.98deg, #ffbb6c 0.02%, #ff7b01 89.63%);
+}
+.quiResult__line:nth-child(4) {
+	background: linear-gradient(89.98deg, #ff7b01 0.02%, #fe6854 89.63%);
+}
+.quiResult__line:nth-child(5) {
+	background: linear-gradient(89.98deg, #fe6854 0.02%, #ff0101 89.63%);
+}
+
+.quiResult__gradient {
+	position: absolute;
+	height: 100%;
+	top: 0;
+	left: 0;
+	opacity: 0.1;
+	background: linear-gradient(
+		90deg,
+		rgba(255, 255, 255, 0) 0%,
+		rgba(98, 222, 67, 0.6) 44%,
+		rgba(153, 230, 44, 0.6) 100%
+	);
+}
+
+.quiResult__vertical {
+	position: absolute;
+	height: 100%;
+	top: 50%;
+	left: 20px;
+	transform: translate(-50%, -50%);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 0;
+}
+
+.quiResult__vertical .quiResult__vertical--dec {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	height: 100%;
+	width: 2px;
+	background-color: #a09f9f;
+	z-index: -1;
+}
+
+.quiResult__vertical .quiResult__vertical--smile {
+	width: 24px;
+	height: 24px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 4px;
+	border-radius: 50%;
+	background-color: #efefef;
+}
+
+.quiResult__points {
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 24px;
+	margin: 0 0 24px 0;
+}
+
+.quiResult__points span {
+	font-weight: 600;
+}
+
+.quiResult__subDescription {
+	font-size: 14px;
+	line-height: 24px;
+	margin: 0 0 16px 0;
+}
+
+.quiResult__subDescription--bold {
+	font-weight: 600;
+}
+
+.quiResult__results {
+	margin-bottom: 32px;
+}
+
+.quiResult__text {
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 24px;
+	margin: 0 0 16px 0;
+}
+
+.quiResult__text--last {
+	margin: 0 0 32px 0;
+}
+
+.quiResult__btn {
+	width: 100%;
+	margin-bottom: 32px;
+}
+
+.quiResult__slider {
+	margin-bottom: 32px;
+}
+
+.quiResult__share {
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 24px;
+	margin: 0 0 24px 0;
+}
+
+.quiResult__link {
+	width: 100%;
+	position: relative;
+}
+
+.quiResult__link::before {
+	content: attr(data-title);
+	position: absolute;
+	top: 12px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: max-content;
+
+	font-size: 14px;
+	line-height: 14px;
+	color: #ffffff;
+	opacity: 0;
+	padding: 5px 10px;
+	border-radius: 8px;
+	background-color: #000000;
+	transition: all 1s ease;
+}
+
+.quiResult__link.quiResult__link--active::before {
+	opacity: 1;
+	top: -18px;
+}

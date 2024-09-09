@@ -1,0 +1,43 @@
+---
+import { getLangFromUrl, useTranslations } from "@/assets/i18n/utils";
+
+import MainLayout from "@/layouts/MainLayout.astro";
+
+const lang = getLangFromUrl(Astro.url);
+const locale = lang === "ru" ? "/" : "/ua/";
+const t = useTranslations(lang);
+---
+
+<MainLayout
+	title={t("meta.title-services")}
+	description={t("meta.description-services")}
+	alternate="/services"
+>
+	<section class="services">
+		<div class="quizzes__header">
+			<h1 class="quizzes__mainTitle">{t("services.mainTitle")}</h1>
+		</div>
+		<div class="quizzes__container">
+			<article class="quizzes__card">
+				<h2 class="quizzes__title">{t("services.title1")}</h2>
+				<p class="quizzes__description">{t("services.description1")}</p>
+				<a href={`${locale}therapy`} class="quizzes__link">{t("services.btn")}</a>
+			</article>
+			<article class="quizzes__card">
+				<h2 class="quizzes__title">{t("services.title2")}</h2>
+				<p class="quizzes__description">{t("services.description2")}</p>
+				<a href={`${locale}workbook`} class="quizzes__link">{t("services.btn")}</a>
+			</article>
+			<article class="quizzes__card">
+				<h2 class="quizzes__title">{t("services.title3")}</h2>
+				<p class="quizzes__description">{t("services.description3")}</p>
+				<a href={`${locale}workshops`} class="quizzes__link">{t("services.btn")}</a>
+			</article>
+			<article class="quizzes__card">
+				<h2 class="quizzes__title">{t("services.title4")}</h2>
+				<p class="quizzes__description">{t("services.description4")}</p>
+				<a href={`${locale}subbotnik`} class="quizzes__link">{t("services.btn")}</a>
+			</article>
+		</div>
+	</section>
+</MainLayout>

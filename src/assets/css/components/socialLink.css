@@ -1,0 +1,12 @@
+.socialLink {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 17px;
+	text-decoration: none;
+	color: var(--text-main);
+	padding: 11.5px 0;
+}

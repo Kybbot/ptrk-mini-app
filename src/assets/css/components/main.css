@@ -1,0 +1,21 @@
+.main--quiz {
+	flex: 1;
+}
+
+.main--quiz > .main__container {
+	height: 100%;
+}
+
+.main__container {
+	padding: 48px 16px;
+	background-color: var(--bg-white);
+	border: 1px solid var(--border-main);
+}
+
+.main__top {
+	display: none;
+}
+
+.main__email {
+	display: none;
+}

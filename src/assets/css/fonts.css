@@ -1,0 +1,53 @@
+/* nunito-800 - cyrillic_latin */
+@font-face {
+	font-family: "Nunito";
+	font-display: swap;
+	font-style: normal;
+	font-weight: 800;
+	src: url("../fonts/Nunito/nunito-v26-cyrillic_latin-800.woff2") format("woff2");
+}
+
+/* inter-tight-regular - cyrillic_latin */
+@font-face {
+	font-family: "Inter Tight";
+	font-display: swap;
+	font-style: normal;
+	font-weight: 400;
+	src: url("../fonts/InterTight/inter-tight-v7-cyrillic_latin-regular.woff2") format("woff2");
+}
+
+/* inter-tight-500 - cyrillic_latin */
+@font-face {
+	font-family: "Inter Tight";
+	font-display: swap;
+	font-style: normal;
+	font-weight: 500;
+	src: url("../fonts/InterTight/inter-tight-v7-cyrillic_latin-500.woff2") format("woff2");
+}
+
+/* inter-tight-600 - cyrillic_latin */
+@font-face {
+	font-family: "Inter Tight";
+	font-display: swap;
+	font-style: normal;
+	font-weight: 600;
+	src: url("../fonts/InterTight/inter-tight-v7-cyrillic_latin-600.woff2") format("woff2");
+}
+
+/* inter-tight-700 - cyrillic_latin */
+@font-face {
+	font-family: "Inter Tight";
+	font-display: swap;
+	font-style: normal;
+	font-weight: 700;
+	src: url("../fonts/InterTight/inter-tight-v7-cyrillic_latin-700.woff2") format("woff2");
+}
+
+/* inter-tight-800 - cyrillic_latin */
+@font-face {
+	font-family: "Inter Tight";
+	font-display: swap;
+	font-style: normal;
+	font-weight: 800;
+	src: url("../fonts/InterTight/inter-tight-v7-cyrillic_latin-800.woff2") format("woff2");
+}

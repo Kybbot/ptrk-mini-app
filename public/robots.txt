@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+
+Disallow: /404
+Disallow: /404/
+Disallow: /ua/404/
+Disallow: /ua/404
+Disallow: /dashboard
+Disallow: /dashboard/
+Disallow: /ua/dashboard
+Disallow: /ua/dashboard/
+Disallow: /thank_you
+Disallow: /thank_you/
+Disallow: /ua/thank_you
+Disallow: /ua/thank_you/
+
+Sitemap: https://ptrk.fm/sitemap-index.xml

@@ -1,0 +1,138 @@
+---
+import { getLangFromUrl, useTranslations } from "@/assets/i18n/utils";
+
+import MainLayout from "@/layouts/MainLayout.astro";
+
+import ProductsSlider from "@/components/ProductsSlider.astro";
+
+const lang = getLangFromUrl(Astro.url);
+const locale = lang === "ru" ? "/" : "/ua/";
+const t = useTranslations(lang);
+---
+
+<MainLayout title={t("meta.title-home")} description={t("meta.description-home")} alternate="/">
+	<section class="home">
+		<div class="home__header">
+			<div class="home__picture">
+				<picture>
+					<source srcset="/images/avatar.webp, /images/avatar@2x.webp 2x" type="image/webp" />
+					<img
+						width="110"
+						height="110"
+						src="/images/avatar.jpg"
+						srcset="/images/avatar@2x.jpg 2x"
+						alt="Avatar"
+						class="home__img"
+						aria-hidden="true"
+					/>
+				</picture>
+			</div>
+			<div class="home__text">
+				<h1 class="home__title">{t("home.title")}</h1>
+				<p class="home__description">{t("home.description1")}</p>
+			</div>
+		</div>
+
+		<ProductsSlider id="homeSwiper" utmContent="home" className="home__slider" />
+
+		<article class="saleCard">
+			<div class="saleCard__header">
+				<p class="saleCard__title">
+					<a href={`${locale}workbook?utmContent=home`} class="saleCard__link">
+						{t("home.saleTitle")}
+					</a>
+				</p>
+				<p class="saleCard__tag">-50%</p>
+			</div>
+			<div class="saleCard__footer">
+				<p class="saleCard__more">
+					{t("home.saleMore")}
+					<svg
+						width="24"
+						height="24"
+						fill="none"
+						aria-hidden="true"
+						viewBox="0 0 24 24"
+						class="saleCard__arrow"
+						xmlns="http://www.w3.org/2000/svg"
+					>
+						<path
+							d="M15.9435 17L21 12L15.9435 7L15.0936 7.84041L18.6993 11.4058L3 11.4058L3 12.5943L18.6992 12.5943L15.0936 16.1596L15.9435 17Z"
+							fill="black"></path>
+					</svg>
+				</p>
+			</div>
+		</article>
+
+		<div class="home__about">
+			<div class="home__wrapper">
+				<div class="home__smallPicture">
+					<picture>
+						<source srcset="/images/avatar.webp, /images/avatar@2x.webp 2x" type="image/webp" />
+						<img
+							width="32"
+							height="32"
+							src="/images/avatar.jpg"
+							srcset="/images/avatar@2x.jpg 2x"
+							alt="Avatar"
+							class="home__smallImg"
+							aria-hidden="true"
+						/>
+					</picture>
+				</div>
+				<h2 class="home__subTitle">{t("home.subTitle2")}</h2>
+			</div>
+			<p class="home__subDescription">
+				{t("home.subDescription1")}
+				<br />
+				{t("home.subDescription2")}
+				<br />
+				{t("home.subDescription3")}
+				<br />
+				{t("home.subDescription4")}
+				<br />
+				{t("home.subDescription5")}
+			</p>
+			<button type="button" class="button button--w100 therapyBtn">{t("home.btn")}</button>
+		</div>
+
+		<div class="home__education">
+			<h2 class="home__tag">{t("home.tag")}</h2>
+
+			<ul class="home__list">
+				<li class="home__li">
+					<span class="home__li--bold">ДНУ</span>
+					<hr class="home__line" />
+					{t("home.li1")}
+				</li>
+				<li class="home__li">
+					<span class="home__li--bold">Transformation Academy</span>
+					<hr class="home__line" />
+					“Cognitive Behavioral Life Coach”
+				</li>
+				<li class="home__li">
+					<span class="home__li--bold">Transformation Academy</span>
+					<hr class="home__line" />
+					”REBT mindset Life Coach”
+				</li>
+				<li class="home__li">
+					<span class="home__li--bold">The Priority Academy</span>
+					<hr class="home__line" />
+					”REBT Practitioner”
+				</li>
+				<li class="home__li">
+					<span class="home__li--bold">УИКПТ</span>
+					<hr class="home__line" />
+					{t("home.li2")}
+				</li>
+				<li class="home__li">
+					<span class="home__li--bold">Transformation Academy</span>
+					<hr class="home__line" />
+					”Mindfulness Life Coach”
+				</li>
+			</ul>
+		</div>
+	</section>
+</MainLayout>
+
+<script src="../assets/scripts/home.ts"></script>

@@ -1,0 +1,28 @@
+.button {
+	font-family: "Inter Tight", sans-serif;
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 24px;
+	color: var(--text-white);
+	cursor: pointer;
+
+	padding: 10px 16px;
+	border-style: none;
+	border: 1px solid transparent;
+	border-radius: var(--radius-14);
+	background-color: var(--bg-black);
+}
+
+.button:disabled {
+	opacity: 0.5;
+}
+
+.button--w100 {
+	width: 100%;
+}
+
+.button--secondary {
+	color: var(--text-main);
+	background-color: transparent;
+	border: 1px solid var(--border-black);
+}

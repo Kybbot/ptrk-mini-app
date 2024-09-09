@@ -1,0 +1,43 @@
+---
+import { getLangFromUrl, useTranslations } from "@/assets/i18n/utils";
+
+import MainLayout from "@/layouts/MainLayout.astro";
+
+const lang = getLangFromUrl(Astro.url);
+const locale = lang === "ru" ? "/" : "/ua/";
+const t = useTranslations(lang);
+---
+
+<MainLayout title={t("meta.title-quizzes")} description={t("meta.description-quizzes")} alternate="/quizzes">
+	<section class="quizzes">
+		<div class="quizzes__header">
+			<h1 class="quizzes__mainTitle">{t("quizzes.mainTitle")}</h1>
+		</div>
+		<div class="quizzes__container">
+			<article class="quizzes__card">
+				<h2 class="quizzes__title">{t("quizzes.title1")}</h2>
+				<p class="quizzes__description">
+					{t("quizzes.description1")}
+				</p>
+				<p class="quizzes__subDescription">{t("quizzes.subDescription")}</p>
+				<a href={`${locale}test-vigoranie-na-rabochem-meste`} class="quizzes__link">{t("quizzes.link")}</a>
+			</article>
+			<article class="quizzes__card">
+				<h2 class="quizzes__title">{t("quizzes.title2")}</h2>
+				<p class="quizzes__description">
+					{t("quizzes.description2")}
+				</p>
+				<p class="quizzes__subDescription">{t("quizzes.subDescription")}</p>
+				<a href={`${locale}test-nalichie-detskih-travm`} class="quizzes__link">{t("quizzes.link")}</a>
+			</article>
+			<article class="quizzes__card">
+				<h2 class="quizzes__title">{t("quizzes.title3")}</h2>
+				<p class="quizzes__description">
+					{t("quizzes.description3")}
+				</p>
+				<p class="quizzes__subDescription">{t("quizzes.subDescription")}</p>
+				<a href={`${locale}test-nalichie-trudogolizma`} class="quizzes__link">{t("quizzes.link")}</a>
+			</article>
+		</div>
+	</section>
+</MainLayout>

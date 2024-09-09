@@ -1,0 +1,177 @@
+---
+import { quiz } from "@/assets/constants/quiz1";
+import { getLangFromUrl, useTranslations } from "@/assets/i18n/utils";
+
+import MainLayout from "@/layouts/MainLayout.astro";
+
+import ProductsSlider from "@/components/ProductsSlider.astro";
+
+import getQuizResult from "@/utils/getQuizResult";
+import calculateGrade from "@/utils/calculateGrade";
+
+import { type SubmitQuiz } from "@/@types/quizzes";
+
+const getQuiResultVerticalColor = (grade: number) => {
+	if (grade <= 1)
+		return "background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #87BC3D 47.5%, rgba(255, 255, 255, 0) 100%);";
+	if (grade > 1 && grade <= 2)
+		return "background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFF501 47.5%, rgba(255, 255, 255, 0) 100%);";
+	if (grade > 2 && grade <= 3)
+		return "background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFBB6C 47.5%, rgba(255, 255, 255, 0) 100%);";
+	if (grade > 3 && grade <= 4)
+		return "background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FF7B01 47.5%, rgba(255, 255, 255, 0) 100%);";
+	if (grade > 4 && grade <= 5)
+		return "background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FE6854 47.5%, rgba(255, 255, 255, 0) 100%);";
+};
+
+const getQuiResultGradientColor = (grade: number) => {
+	if (grade <= 1)
+		return "background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(98, 222, 67, 0.6) 44%, rgba(153, 230, 44, 0.6) 100%);";
+	if (grade > 1 && grade <= 2)
+		return "background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #FFF501 44%, #FFBB6C 100%);";
+	if (grade > 2 && grade <= 3)
+		return "background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #FFBB6C 44%, #FF7B01 100%);";
+	if (grade > 3 && grade <= 4)
+		return "background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #FF7B01 44%, #FE6854 100%);";
+	if (grade > 4 && grade <= 5)
+		return "background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #FE6854 44%, #FF0101 100%);";
+};
+
+const { id } = Astro.params;
+
+let result: SubmitQuiz["submit"] | null;
+
+try {
+	result = await getQuizResult(`/quiz/submit/${id}`);
+} catch (error) {
+	result = null;
+}
+
+const resultGrade = result && calculateGrade(result.points, quiz.maxPoints);
+
+const quiResultVerticalLeft = resultGrade ? (resultGrade * 100) / 5 : 0;
+const quiResultVerticalColor = resultGrade ? getQuiResultVerticalColor(resultGrade) : "";
+const quiResultGradientColor = resultGrade ? getQuiResultGradientColor(resultGrade) : "";
+
+const ratings = quiz.ratings;
+
+const lang = getLangFromUrl(Astro.url);
+const locale = lang === "ru" ? "/" : "/ua/";
+const t = useTranslations(lang);
+---
+
+<MainLayout
+	title={`${t("quiz.results")} | ${result ? result.result[lang] : ""}`}
+	description={t("meta.description-quiz_results")}
+	showMobileMenu={false}
+	hideFooter={true}
+	quizContainer={true}
+	containerClass="quiResult"
+>
+	<section class="quiResult__container">
+		<a href={`${locale}`} class="quiResult__back">
+			<svg
+				width="12"
+				height="8"
+				fill="none"
+				viewBox="0 0 12 8"
+				aria-hidden="true"
+				xmlns="http://www.w3.org/2000/svg"
+			>
+				<path
+					d="M3.80916 7L1 4L3.80916 1L4.28131 1.50425L2.27816 3.64347L11 3.64347L11 4.35657L2.27822 4.35657L4.28131 6.49575L3.80916 7Z"
+					fill="#A09F9F"
+					stroke="#A09F9F"
+					stroke-width="0.3"></path>
+			</svg>
+			{t("quiz.backToMain")}
+		</a>
+		<div class="quiResult__header">
+			<h1 class="quiResult__titel">{quiz.shortTitle[lang]}</h1>
+			<p class="quiResult__subTitle">{result ? t("quiz.resultHeader") : t("quiz.errorResultHeader")}</p>
+		</div>
+		{
+			result ? (
+				<main class="quiResult__mian">
+					<div class="quiResult__progress">
+						<div class="quiResult__line" />
+						<div class="quiResult__line" />
+						<div class="quiResult__line" />
+						<div class="quiResult__line" />
+						<div class="quiResult__line" />
+						<div
+							class="quiResult__gradient"
+							style={`width: ${quiResultVerticalLeft}%; ${quiResultGradientColor}`}
+						/>
+						<div class="quiResult__vertical" style={`left: ${quiResultVerticalLeft}%`}>
+							<span class="quiResult__vertical--smile">🙂</span>
+							<span class="quiResult__vertical--dec" style={quiResultVerticalColor} />
+						</div>
+					</div>
+					<p class="quiResult__points">
+						{t("quiz.userState")} - <span>{resultGrade}/5</span> (<span>{result.result[lang]}</span>)
+					</p>
+					<div class="details quiResult__results">
+						{ratings?.map((item) => (
+							<div
+								class={`details__container ${result.result[lang] == item.result[lang] ? "details__container--active details__container--main" : ""}`}
+							>
+								<button class="details__button" type="button">
+									<span>
+										{item.result[lang]}
+										<span>{result.result[lang] == item.result[lang] && `${t("quiz.statePosition")}`}</span>
+									</span>
+									<svg
+										class="details__svg"
+										width="24"
+										height="24"
+										viewBox="0 0 24 24"
+										fill="none"
+										xmlns="http://www.w3.org/2000/svg"
+									>
+										<g opacity="0.3">
+											<path
+												d="M7 10L12 15L17 10"
+												stroke="black"
+												stroke-width="1.5"
+												stroke-linecap="round"
+												stroke-linejoin="round"
+											/>
+										</g>
+									</svg>
+								</button>
+								<div
+									class={`details__wrapper ${result.result[lang] == item.result[lang] ? "details__wrapper--active" : ""}`}
+								>
+									<ul class="details__ul">
+										{item.characteristics?.[lang]?.map((item) => (
+											<li class="details__li">{item}</li>
+										))}
+									</ul>
+								</div>
+							</div>
+						))}
+					</div>
+					<button type="button" class="button quiResult__btn therapyBtn">
+						{t("quiz.therapyBtn")}
+					</button>
+					<ProductsSlider id="quiResultSwiper" utmContent="quiz1Result" className="quiResult__slider" />
+					<p class="quiResult__share">{t("quiz.resultShare")}</p>
+					<button class="link link--secondary quiResult__link" type="button">
+						{t("quiz.resultLink")}
+						<svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path
+								d="M4.16602 10.1663V16.833C4.16602 17.275 4.34161 17.699 4.65417 18.0115C4.96673 18.3241 5.39065 18.4997 5.83268 18.4997H15.8327C16.2747 18.4997 16.6986 18.3241 17.0112 18.0115C17.3238 17.699 17.4993 17.275 17.4993 16.833V10.1663M14.166 5.16634L10.8327 1.83301M10.8327 1.83301L7.49935 5.16634M10.8327 1.83301V12.6663"
+								stroke="#111111"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+							/>
+						</svg>
+					</button>
+				</main>
+			) : null
+		}
+	</section>
+</MainLayout>
+
+<script src="../../assets/scripts/quiz/quizResults.ts"></script>

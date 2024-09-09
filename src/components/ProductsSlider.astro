@@ -1,0 +1,185 @@
+---
+type Props = {
+	id: string;
+	utmContent: string;
+	className?: string;
+};
+
+import { getLangFromUrl, useTranslations } from "@/assets/i18n/utils";
+
+const { id, utmContent, className } = Astro.props;
+
+const lang = getLangFromUrl(Astro.url);
+const locale = lang === "ru" ? "/" : "/ua/";
+const t = useTranslations(lang);
+---
+
+<div class={`productsSlider ${className ? className : ""}`}>
+	<h2 class="productsSlider__title">{t("home.subTitle1")}</h2>
+	<div class="productsSlider__main">
+		<div id={id} class="swiper productsSlider__container">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide productsSlider__slide">
+					<a class="productsSlider__link" href={`${locale}services`}>
+						<svg
+							width="24"
+							height="24"
+							fill="none"
+							aria-hidden="true"
+							viewBox="0 0 24 24"
+							class="productsSlider__svg"
+							xmlns="http://www.w3.org/2000/svg"
+						>
+							<g clip-path="url(#clip0_1104_601)">
+								<rect width="24" height="24" rx="12" fill="white"></rect>
+								<path
+									d="M15.4984 14.1304L15.4837 8.4924L9.84579 8.47777C9.78705 8.46982 9.72728 8.47458 9.67054 8.49173C9.61381 8.50888 9.56141 8.53802 9.51692 8.57718C9.47242 8.61634 9.43685 8.66461 9.41263 8.71871C9.38841 8.7728 9.37609 8.83148 9.37651 8.89075C9.37694 8.95002 9.39009 9.00851 9.41508 9.06226C9.44008 9.11601 9.47633 9.16376 9.52138 9.20228C9.56643 9.2408 9.61924 9.26919 9.67621 9.28553C9.73319 9.30187 9.79302 9.30578 9.85164 9.29699L14.0765 9.31454L8.47945 14.9115C8.40185 14.9891 8.35826 15.0944 8.35826 15.2041C8.35826 15.3139 8.40185 15.4191 8.47945 15.4967C8.55705 15.5743 8.66229 15.6179 8.77203 15.6179C8.88177 15.6179 8.98701 15.5743 9.0646 15.4967L14.6616 9.89969L14.6792 14.1245C14.6795 14.2343 14.7235 14.3395 14.8015 14.4168C14.8794 14.4942 14.9848 14.5374 15.0946 14.537C15.2044 14.5367 15.3096 14.4927 15.3869 14.4148C15.4643 14.3368 15.5075 14.2314 15.5072 14.1216L15.4984 14.1304Z"
+									fill="#B7B7B7"></path>
+							</g>
+							<rect x="0.5" y="0.5" width="23" height="23" rx="11.5" stroke="black" stroke-opacity="0.08"
+							></rect>
+							<defs>
+								<clipPath id="clip0_1104_601">
+									<rect width="24" height="24" rx="12" fill="white"></rect>
+								</clipPath>
+							</defs>
+						</svg>
+						<img
+							width="160"
+							height="160"
+							aria-hidden="true"
+							class="productsSlider__img"
+							alt={t("home.swiperName0")}
+							src="/images/personal.jpg"
+							srcset="/images/personal@2x.jpg"
+						/>
+						<div class="productsSlider__text">
+							<p class="productsSlider__name">{t("home.swiperName0")}</p>
+							<p class="productsSlider__description">online</p>
+						</div>
+					</a>
+				</div>
+				<div class="swiper-slide productsSlider__slide">
+					<a class="productsSlider__link" href={`${locale}workbook?utmContent=${utmContent}`}>
+						<svg
+							width="24"
+							height="24"
+							fill="none"
+							aria-hidden="true"
+							viewBox="0 0 24 24"
+							class="productsSlider__svg"
+							xmlns="http://www.w3.org/2000/svg"
+						>
+							<g clip-path="url(#clip0_1104_601)">
+								<rect width="24" height="24" rx="12" fill="white"></rect>
+								<path
+									d="M15.4984 14.1304L15.4837 8.4924L9.84579 8.47777C9.78705 8.46982 9.72728 8.47458 9.67054 8.49173C9.61381 8.50888 9.56141 8.53802 9.51692 8.57718C9.47242 8.61634 9.43685 8.66461 9.41263 8.71871C9.38841 8.7728 9.37609 8.83148 9.37651 8.89075C9.37694 8.95002 9.39009 9.00851 9.41508 9.06226C9.44008 9.11601 9.47633 9.16376 9.52138 9.20228C9.56643 9.2408 9.61924 9.26919 9.67621 9.28553C9.73319 9.30187 9.79302 9.30578 9.85164 9.29699L14.0765 9.31454L8.47945 14.9115C8.40185 14.9891 8.35826 15.0944 8.35826 15.2041C8.35826 15.3139 8.40185 15.4191 8.47945 15.4967C8.55705 15.5743 8.66229 15.6179 8.77203 15.6179C8.88177 15.6179 8.98701 15.5743 9.0646 15.4967L14.6616 9.89969L14.6792 14.1245C14.6795 14.2343 14.7235 14.3395 14.8015 14.4168C14.8794 14.4942 14.9848 14.5374 15.0946 14.537C15.2044 14.5367 15.3096 14.4927 15.3869 14.4148C15.4643 14.3368 15.5075 14.2314 15.5072 14.1216L15.4984 14.1304Z"
+									fill="#B7B7B7"></path>
+							</g>
+							<rect x="0.5" y="0.5" width="23" height="23" rx="11.5" stroke="black" stroke-opacity="0.08"
+							></rect>
+							<defs>
+								<clipPath id="clip0_1104_601">
+									<rect width="24" height="24" rx="12" fill="white"></rect>
+								</clipPath>
+							</defs>
+						</svg>
+						<img
+							width="160"
+							height="160"
+							aria-hidden="true"
+							class="productsSlider__img"
+							alt={t("home.swiperName1")}
+							src="/images/workbookD.jpg"
+							srcset="/images/workbookD@2x.jpg"
+						/>
+						<div class="productsSlider__text">
+							<p class="productsSlider__name">{t("home.swiperName1")}</p>
+							<p class="productsSlider__description">pdf</p>
+						</div>
+					</a>
+				</div>
+				<div class="swiper-slide productsSlider__slide">
+					<a class="productsSlider__link" href={`${locale}workshops?utmContent=${utmContent}`}>
+						<svg
+							width="24"
+							height="24"
+							fill="none"
+							aria-hidden="true"
+							viewBox="0 0 24 24"
+							class="productsSlider__svg"
+							xmlns="http://www.w3.org/2000/svg"
+						>
+							<g clip-path="url(#clip0_1104_601)">
+								<rect width="24" height="24" rx="12" fill="white"></rect>
+								<path
+									d="M15.4984 14.1304L15.4837 8.4924L9.84579 8.47777C9.78705 8.46982 9.72728 8.47458 9.67054 8.49173C9.61381 8.50888 9.56141 8.53802 9.51692 8.57718C9.47242 8.61634 9.43685 8.66461 9.41263 8.71871C9.38841 8.7728 9.37609 8.83148 9.37651 8.89075C9.37694 8.95002 9.39009 9.00851 9.41508 9.06226C9.44008 9.11601 9.47633 9.16376 9.52138 9.20228C9.56643 9.2408 9.61924 9.26919 9.67621 9.28553C9.73319 9.30187 9.79302 9.30578 9.85164 9.29699L14.0765 9.31454L8.47945 14.9115C8.40185 14.9891 8.35826 15.0944 8.35826 15.2041C8.35826 15.3139 8.40185 15.4191 8.47945 15.4967C8.55705 15.5743 8.66229 15.6179 8.77203 15.6179C8.88177 15.6179 8.98701 15.5743 9.0646 15.4967L14.6616 9.89969L14.6792 14.1245C14.6795 14.2343 14.7235 14.3395 14.8015 14.4168C14.8794 14.4942 14.9848 14.5374 15.0946 14.537C15.2044 14.5367 15.3096 14.4927 15.3869 14.4148C15.4643 14.3368 15.5075 14.2314 15.5072 14.1216L15.4984 14.1304Z"
+									fill="#B7B7B7"></path>
+							</g>
+							<rect x="0.5" y="0.5" width="23" height="23" rx="11.5" stroke="black" stroke-opacity="0.08"
+							></rect>
+							<defs>
+								<clipPath id="clip0_1104_601">
+									<rect width="24" height="24" rx="12" fill="white"></rect>
+								</clipPath>
+							</defs>
+						</svg>
+						<img
+							width="246"
+							height="246"
+							aria-hidden="true"
+							class="productsSlider__img"
+							alt={t("home.swiperName2")}
+							src="/images/workshops/1d.jpg"
+							srcset="/images/workshops/1d@2x.jpg"
+						/>
+						<div class="productsSlider__text">
+							<p class="productsSlider__name">{t("home.swiperName2")}</p>
+							<p class="productsSlider__description">records</p>
+						</div>
+					</a>
+				</div>
+				<div class="swiper-slide productsSlider__slide">
+					<a class="productsSlider__link" href={`${locale}subbotnik?utmContent=${utmContent}`}>
+						<svg
+							width="24"
+							height="24"
+							fill="none"
+							aria-hidden="true"
+							viewBox="0 0 24 24"
+							class="productsSlider__svg"
+							xmlns="http://www.w3.org/2000/svg"
+						>
+							<g clip-path="url(#clip0_1104_601)">
+								<rect width="24" height="24" rx="12" fill="white"></rect>
+								<path
+									d="M15.4984 14.1304L15.4837 8.4924L9.84579 8.47777C9.78705 8.46982 9.72728 8.47458 9.67054 8.49173C9.61381 8.50888 9.56141 8.53802 9.51692 8.57718C9.47242 8.61634 9.43685 8.66461 9.41263 8.71871C9.38841 8.7728 9.37609 8.83148 9.37651 8.89075C9.37694 8.95002 9.39009 9.00851 9.41508 9.06226C9.44008 9.11601 9.47633 9.16376 9.52138 9.20228C9.56643 9.2408 9.61924 9.26919 9.67621 9.28553C9.73319 9.30187 9.79302 9.30578 9.85164 9.29699L14.0765 9.31454L8.47945 14.9115C8.40185 14.9891 8.35826 15.0944 8.35826 15.2041C8.35826 15.3139 8.40185 15.4191 8.47945 15.4967C8.55705 15.5743 8.66229 15.6179 8.77203 15.6179C8.88177 15.6179 8.98701 15.5743 9.0646 15.4967L14.6616 9.89969L14.6792 14.1245C14.6795 14.2343 14.7235 14.3395 14.8015 14.4168C14.8794 14.4942 14.9848 14.5374 15.0946 14.537C15.2044 14.5367 15.3096 14.4927 15.3869 14.4148C15.4643 14.3368 15.5075 14.2314 15.5072 14.1216L15.4984 14.1304Z"
+									fill="#B7B7B7"></path>
+							</g>
+							<rect x="0.5" y="0.5" width="23" height="23" rx="11.5" stroke="black" stroke-opacity="0.08"
+							></rect>
+							<defs>
+								<clipPath id="clip0_1104_601">
+									<rect width="24" height="24" rx="12" fill="white"></rect>
+								</clipPath>
+							</defs>
+						</svg>
+						<img
+							width="246"
+							height="246"
+							aria-hidden="true"
+							class="productsSlider__img"
+							alt={t("home.swiperName3")}
+							src="/images/subbotnikD.jpg"
+							srcset="/images/subbotnikD@2x.jpg"
+						/>
+						<div class="productsSlider__text">
+							<p class="productsSlider__name">{t("home.swiperName3")}</p>
+							<p class="productsSlider__description">online</p>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
