@@ -98,7 +98,7 @@ const t = useTranslations(lang);
 	const bannerSecondsTime = document.querySelector("#bannerSecondsTime") as HTMLSpanElement;
 	const bannerSecondsText = document.querySelector("#bannerSecondsText") as HTMLSpanElement;
 
-	let timerId: NodeJS.Timeout;
+	let timerId: number;
 
 	const updateBanner = () => {
 		if (time) {

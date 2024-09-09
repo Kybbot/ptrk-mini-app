@@ -55,7 +55,7 @@ const { name, className = "" } = Astro.props;
 	const timerSecondsTime = document.querySelector("#timerSecondsTime") as HTMLSpanElement;
 	const timerSecondsText = document.querySelector("#timerSecondsText") as HTMLSpanElement;
 
-	let timerId: NodeJS.Timeout;
+	let timerId: number;
 
 	const updateTimer = () => {
 		if (time) {

@@ -1,6 +1,6 @@
 import { getLangFromUrl, useTranslations } from "@/assets/i18n/utils";
 
-import { SubmitQuiz } from "@/@types/quizzes";
+import { type SubmitQuiz } from "@/@types/quizzes";
 
 const lang = getLangFromUrl(location);
 const locale = lang === "ru" ? "/" : "/ua/";
