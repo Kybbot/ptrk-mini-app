@@ -29,7 +29,31 @@ const pathname = location.pathname;
 const updatedPathname =
 	pathname.length > 4 && pathname[pathname.length - 1] === "/" ? pathname.slice(0, -1) : pathname;
 
-// THERAPY MODAL
+// BTNS
+const linkBtns = document.querySelectorAll(".linkBtn") as NodeListOf<HTMLButtonElement>;
+const tgLinkBtns = document.querySelectorAll(".tgLinkBtn") as NodeListOf<HTMLButtonElement>;
+
+for (const linkBtn of linkBtns) {
+	linkBtn.addEventListener("click", () => {
+		const href = linkBtn.dataset.href!;
+
+		if (window.Telegram) {
+			window.Telegram.WebApp.openLink(href, { try_instant_view: true });
+		}
+	});
+}
+
+for (const tgLinkBtn of tgLinkBtns) {
+	tgLinkBtn.addEventListener("click", () => {
+		const href = tgLinkBtn.dataset.href!;
+
+		if (window.Telegram) {
+			window.Telegram.WebApp.openTelegramLink(href);
+		}
+	});
+}
+
+// THERAPY BTNS
 const therapyBtns = document.querySelectorAll(".therapyBtn") as NodeListOf<HTMLButtonElement>;
 
 for (const therapyBtn of therapyBtns) {
