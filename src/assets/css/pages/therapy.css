@@ -1,0 +1,261 @@
+.therapy__header {
+	margin-bottom: 24px;
+}
+
+.therapy__title {
+	font-size: 24px;
+	font-weight: 600;
+	line-height: 27px;
+	letter-spacing: -0.03em;
+	margin: 0 0 16px 0;
+}
+
+.therapy__description {
+	font-size: 14px;
+	line-height: 24px;
+	margin: 0;
+}
+
+.therapy__lists {
+	margin-bottom: 40px;
+}
+
+.therapy__list {
+	margin: 0;
+	padding-left: 18px;
+}
+
+.therapy__li {
+	font-size: 14px;
+	line-height: 24px;
+}
+
+.therapy__about {
+	display: grid;
+	gap: 24px;
+	margin-bottom: 32px;
+}
+
+.therapy__subTitle {
+	font-size: 20px;
+	font-weight: 600;
+	line-height: 34px;
+	letter-spacing: -0.03em;
+	margin: 0 0 16px 0;
+}
+
+.therapy__subDescription {
+	font-size: 14px;
+	line-height: 24px;
+	margin: 0;
+}
+
+.therapy__subDescription--span {
+	font-size: 12px;
+	line-height: 12px;
+	color: #747474;
+}
+
+.therapy__testTitle {
+	font-size: 20px;
+	font-weight: 600;
+	line-height: 30px;
+	margin: 0 0 24px 0;
+}
+
+.therapy__footer {
+	display: grid;
+	gap: 10px;
+}
+
+.therapy__workshops {
+	padding: 16px 24px;
+	border-radius: 12px;
+	border: 1px solid #00000014;
+	background-color: #f8f8f8;
+	font-size: 14px;
+	line-height: 24px;
+	margin: 32px 0 40px 0;
+}
+
+.therapy__workshops--link {
+	color: inherit;
+	font-weight: 600;
+}
+
+.therapySlider {
+	margin: 0 -16px;
+}
+
+.swiper.therapySlider__main {
+	padding: 0 16px;
+}
+
+.swiper-slide.therapySlider__slide {
+	padding: 0;
+	height: auto;
+}
+
+.therapySlider__container {
+	height: 100%;
+	padding: 32px 24px 24px 24px;
+	border-radius: 24px;
+	background-color: #f8f8f8;
+}
+
+.therapySlider__header {
+	height: 40px;
+	margin-bottom: 24px;
+}
+
+.therapySlider__svg {
+	height: 40px;
+}
+
+.therapySlider__text {
+	height: 265px;
+	overflow-y: auto;
+	font-size: 14px;
+	line-height: 24px;
+	color: #525252;
+	margin: 0 0 24px 0;
+}
+
+.therapySlider__footer {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+}
+
+.therapySlider__img {
+	width: 80px;
+	height: 80px;
+	object-fit: cover;
+	border-radius: 50%;
+}
+
+.therapySlider__name {
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 24px;
+	margin: 0;
+}
+
+.therapySlider__pagination {
+	display: flex;
+	align-items: center;
+	gap: 24px;
+	margin-top: 16px;
+}
+
+.therapySlider__btn {
+	width: 40px;
+	height: 40px;
+	padding: 0;
+	cursor: pointer;
+	border-style: none;
+	background-color: transparent;
+}
+
+.therapySlider__progress {
+	position: relative;
+	flex: 1;
+	height: 2px;
+	border-radius: 8px;
+	background-color: #d9d9d9;
+}
+
+.therapySlider__bar {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	height: 4px;
+	width: 8.3%;
+	border-radius: 8px;
+	transition: width 0.3s ease;
+	background: linear-gradient(90deg, #c88efd 0%, #52addb 100%);
+}
+
+@media screen and (min-width: 768px) {
+	.therapy__header {
+		margin-bottom: 32px;
+	}
+
+	.therapy__title {
+		font-size: 36px;
+		line-height: 40px;
+	}
+
+	.therapy__description {
+		font-size: 16px;
+		line-height: 27px;
+	}
+
+	.therapy__lists {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 22px;
+		margin-bottom: 40px;
+	}
+
+	.therapy__li {
+		font-size: 16px;
+		line-height: 27px;
+	}
+
+	.therapy__about {
+		grid-template-columns: 1fr 1fr;
+		gap: 22px;
+	}
+
+	.therapy__subTitle {
+		font-size: 24px;
+		line-height: 41px;
+		margin: 0 0 24px 0;
+	}
+
+	.therapy__subDescription {
+		font-size: 16px;
+		line-height: 27px;
+	}
+
+	.therapy__footer {
+		display: grid;
+		gap: 10px;
+	}
+
+	.therapy__footer {
+		display: flex;
+		gap: 16px;
+	}
+
+	.therapy__footer .button,
+	.therapy__footer .link {
+		width: fit-content;
+	}
+
+	.therapy__workshops {
+		padding: 24px 32px;
+		font-size: 16px;
+		line-height: 27px;
+		margin: 40px 0;
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	.therapySlider {
+		margin: 0 -32px;
+	}
+
+	.swiper.therapySlider__main {
+		padding: 0 32px;
+	}
+
+	.swiper-slide.therapySlider__slide {
+		width: 47%;
+	}
+
+	.therapySlider__pagination {
+		margin-top: 24px;
+	}
+}

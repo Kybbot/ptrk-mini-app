@@ -1,0 +1,256 @@
+---
+import { defaultLang, ui } from "@/assets/i18n/ui";
+import { getLangFromUrl, useTranslations } from "@/assets/i18n/utils";
+
+import MainLayout from "@/layouts/MainLayout.astro";
+
+const lang = getLangFromUrl(Astro.url);
+const locale = lang === "ru" ? "/" : "/ua/";
+const t = useTranslations(lang);
+
+const reviews: {
+	text: keyof (typeof ui)[typeof defaultLang];
+	img: string;
+	name: keyof (typeof ui)[typeof defaultLang];
+}[] = [
+	{
+		text: "therapy.slide1",
+		img: "/images/reviews/1.jpg",
+		name: "therapy.name1",
+	},
+	{
+		text: "therapy.slide2",
+		img: "/images/reviews/2.jpg",
+		name: "therapy.name2",
+	},
+	{
+		text: "therapy.slide3",
+		img: "/images/reviews/3.jpg",
+		name: "therapy.name3",
+	},
+	{
+		text: "therapy.slide4",
+		img: "/images/reviews/4.jpg",
+		name: "therapy.name4",
+	},
+	{
+		text: "therapy.slide5",
+		img: "/images/reviews/5.jpg",
+		name: "therapy.name5",
+	},
+	{
+		text: "therapy.slide6",
+		img: "/images/reviews/6.jpg",
+		name: "therapy.name6",
+	},
+	{
+		text: "therapy.slide7",
+		img: "/images/reviews/7.jpg",
+		name: "therapy.name7",
+	},
+	{
+		text: "therapy.slide8",
+		img: "/images/reviews/8.jpg",
+		name: "therapy.name8",
+	},
+	{
+		text: "therapy.slide9",
+		img: "/images/reviews/9.jpg",
+		name: "therapy.name9",
+	},
+	{
+		text: "therapy.slide10",
+		img: "/images/reviews/10.jpg",
+		name: "therapy.name10",
+	},
+	{
+		text: "therapy.slide11",
+		img: "/images/reviews/11.jpg",
+		name: "therapy.name11",
+	},
+	{
+		text: "therapy.slide12",
+		img: "/images/reviews/12.jpg",
+		name: "therapy.name12",
+	},
+];
+---
+
+<MainLayout alternate="/therapy" title={t("meta.title-therapy")} description={t("meta.description-therapy")}>
+	<section class="therapy">
+		<div class="therapy__header">
+			<h1 class="therapy__title">{t("therapy.title")}</h1>
+			<p class="therapy__description">{t("therapy.description")}</p>
+		</div>
+		<div class="therapy__lists">
+			<ul class="therapy__list">
+				<li class="therapy__li">{t("therapy.li1")}</li>
+				<li class="therapy__li">{t("therapy.li2")}</li>
+				<li class="therapy__li">{t("therapy.li3")}</li>
+				<li class="therapy__li">{t("therapy.li4")}</li>
+				<li class="therapy__li">{t("therapy.li5")}</li>
+				<li class="therapy__li">{t("therapy.li6")}</li>
+				<li class="therapy__li">{t("therapy.li7")}</li>
+				<li class="therapy__li">{t("therapy.li8")}</li>
+			</ul>
+			<ul class="therapy__list">
+				<li class="therapy__li">{t("therapy.li9")}</li>
+				<li class="therapy__li">{t("therapy.li10")}</li>
+				<li class="therapy__li">{t("therapy.li11")}</li>
+				<li class="therapy__li">{t("therapy.li12")}</li>
+				<li class="therapy__li">{t("therapy.li13")}</li>
+				<li class="therapy__li">{t("therapy.li14")}</li>
+				<li class="therapy__li">{t("therapy.li15")}</li>
+			</ul>
+		</div>
+		<div class="therapy__about">
+			<div class="therapy__block">
+				<h2 class="therapy__subTitle">{t("therapy.subTitle1")}</h2>
+				<p class="therapy__subDescription">
+					{t("therapy.subDescription1")}
+					<br />
+					<br />
+					<b>{t("therapy.subDescriptionPrice")}</b>
+					<span class="therapy__subDescription--span">{t("therapy.subDescriptionPriceSpan")}</span>
+				</p>
+			</div>
+			<div class="therapy__block">
+				<h2 class="therapy__subTitle">{t("therapy.subTitle2")}</h2>
+				<p class="therapy__subDescription">{t("therapy.subDescription2")}</p>
+			</div>
+		</div>
+		<div class="therapy__footer">
+			<button type="button" class="button therapyBtn">{t("therapy.btn")}</button>
+		</div>
+		<p class="therapy__workshops">
+			{t("therapy.info")}
+			<a href={`${locale}subbotnik?utmContent=therapy`} class="therapy__workshops--link">
+				{t("therapy.infoLink")}
+			</a>
+		</p>
+		<h2 class="therapy__subTitle">{t("therapy.subTitle3")}</h2>
+		<div class="therapySlider">
+			<div id="therapySlider" class="swiper therapySlider__main">
+				<div class="swiper-wrapper">
+					{
+						reviews.map((review) => (
+							<div class="swiper-slide therapySlider__slide">
+								<div class="therapySlider__container">
+									<div class="therapySlider__header">
+										<svg
+											width="40"
+											height="40"
+											fill="none"
+											aria-hidden="true"
+											viewBox="0 0 40 40"
+											class="therapySlider__svg"
+											xmlns="http://www.w3.org/2000/svg"
+										>
+											<path
+												d="M14 12L16 8H12C7.58 8 4 13.58 4 18V32H18V18H10C10 12 14 12 14 12ZM28 18C28 12 32 12 32 12L34 8H30C25.58 8 22 13.58 22 18V32H36V18H28Z"
+												fill="url(#paint0_linear_1112_1869)"
+												fill-opacity="0.4"
+											/>
+											<defs>
+												<linearGradient
+													id="paint0_linear_1112_1869"
+													x1="3.33329"
+													y1="8.33203"
+													x2="36.6666"
+													y2="34.9987"
+													gradientUnits="userSpaceOnUse"
+												>
+													<stop stop-color="#C88EFD" />
+													<stop offset="1" stop-color="#52ADDB" />
+												</linearGradient>
+											</defs>
+										</svg>
+									</div>
+									<p class="therapySlider__text">{t(review.text)}</p>
+									<div class="therapySlider__footer">
+										<img
+											width="80"
+											height="80"
+											alt="Avatar"
+											loading="lazy"
+											src={review.img}
+											aria-hidden="true"
+											class="therapySlider__img"
+										/>
+										<p class="therapySlider__name">{t(review.name)}</p>
+									</div>
+								</div>
+							</div>
+						))
+					}
+				</div>
+				<div class="therapySlider__footer">
+					<button id="prevBtn" type="button" class="therapySlider__btn" aria-label="Назад">
+						<svg
+							width="40"
+							height="40"
+							fill="none"
+							aria-hidden="true"
+							viewBox="0 0 40 40"
+							xmlns="http://www.w3.org/2000/svg"
+						>
+							<rect
+								width="40"
+								height="40"
+								rx="20"
+								transform="matrix(-4.37114e-08 1 1 4.37114e-08 0 0)"
+								fill="white"></rect>
+							<rect
+								x="0.5"
+								y="0.5"
+								width="39"
+								height="39"
+								rx="19.5"
+								transform="matrix(-4.37114e-08 1 1 4.37114e-08 -2.18557e-08 2.18557e-08)"
+								stroke="black"
+								stroke-opacity="0.08"></rect>
+							<path
+								d="M22.5 25L17.5 20L22.5 15"
+								stroke="#AEAEAE"
+								stroke-width="1.5"
+								stroke-linecap="round"
+								stroke-linejoin="round"></path>
+						</svg>
+					</button>
+					<div class="therapySlider__progress">
+						<span id="progressBar" class="therapySlider__bar"></span>
+					</div>
+					<button id="nextBtn" type="button" class="therapySlider__btn" aria-label="Вперёд">
+						<svg
+							width="40"
+							height="40"
+							fill="none"
+							aria-hidden="true"
+							viewBox="0 0 40 40"
+							xmlns="http://www.w3.org/2000/svg"
+						>
+							<rect x="40" width="40" height="40" rx="20" transform="rotate(90 40 0)" fill="white"></rect>
+							<rect
+								x="39.5"
+								y="0.5"
+								width="39"
+								height="39"
+								rx="19.5"
+								transform="rotate(90 39.5 0.5)"
+								stroke="black"
+								stroke-opacity="0.08"></rect>
+							<path
+								d="M17.5 25L22.5 20L17.5 15"
+								stroke="#AEAEAE"
+								stroke-width="1.5"
+								stroke-linecap="round"
+								stroke-linejoin="round"></path>
+						</svg>
+					</button>
+				</div>
+			</div>
+		</div>
+	</section>
+</MainLayout>
+
+<script src="../../assets/scripts/therapy.ts"></script>
