@@ -1,5 +1,5 @@
 ---
-import { getLangFromUrl } from "@/assets/i18n/utils";
+import { getLangFromUrl, localizedUrl } from "@/assets/i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
 const locale = lang === "ru" ? "/" : "/ua/";
@@ -8,5 +8,23 @@ const locale = lang === "ru" ? "/" : "/ua/";
 <header class="header">
 	<div class="header__container">
 		<a href={`${locale}`} class="header__link">ptrk.fm</a>
+		<div class="header__btns">
+			<a
+				class="header__lng"
+				data-selected={lang === "ua"}
+				href={localizedUrl(Astro.url, "ua").pathname}
+				data-value={localizedUrl(Astro.url, "ua").pathname}
+			>
+				UA
+			</a>
+			<a
+				class="header__lng"
+				data-selected={lang === "ru"}
+				href={localizedUrl(Astro.url, "ru").pathname}
+				data-value={localizedUrl(Astro.url, "ru").pathname}
+			>
+				RU
+			</a>
+		</div>
 	</div>
 </header>

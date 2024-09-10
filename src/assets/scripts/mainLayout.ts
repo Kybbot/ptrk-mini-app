@@ -10,25 +10,6 @@ if (referralCode) {
 	localStorage.setItem("referralCode", referralCode);
 }
 
-// Change Language
-const mobileMenuLngs = document.querySelectorAll(".mobileMenu__lng") as NodeListOf<HTMLButtonElement>;
-
-for (const mobileMenuLng of mobileMenuLngs) {
-	mobileMenuLng.addEventListener("click", (event) => {
-		const target = event.target as HTMLButtonElement;
-		const value = target.dataset.value;
-
-		if (value) {
-			document.cookie = `locale=${value};max-age=${60 * 60 * 24 * 365}`;
-			window.location.pathname = value;
-		}
-	});
-}
-
-const pathname = location.pathname;
-const updatedPathname =
-	pathname.length > 4 && pathname[pathname.length - 1] === "/" ? pathname.slice(0, -1) : pathname;
-
 // BTNS
 const linkBtns = document.querySelectorAll(".linkBtn") as NodeListOf<HTMLButtonElement>;
 const tgLinkBtns = document.querySelectorAll(".tgLinkBtn") as NodeListOf<HTMLButtonElement>;

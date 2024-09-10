@@ -3,6 +3,12 @@
 	background-color: #fbfbfb;
 }
 
+.header__container {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
 .header__link {
 	display: block;
 	font-family: "Nunito", sans-serif;
@@ -11,4 +17,30 @@
 	line-height: 38px;
 	color: inherit;
 	text-decoration: none;
+}
+
+.header__btns {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+}
+
+.header__lng {
+	font-family: "Inter Tight", sans-serif;
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 17px;
+	color: #000000;
+	cursor: pointer;
+	text-decoration: none;
+	padding: 7.5px 6.5px;
+	border-style: none;
+	background-color: transparent;
+}
+
+.header__lng[data-selected=""] {
+	background: -webkit-linear-gradient(118.67deg, #c88efd 11.72%, #51acda 95.84%);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
 }
