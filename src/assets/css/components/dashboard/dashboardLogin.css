@@ -1,0 +1,137 @@
+.dashboardLogin__container {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	background-color: #ffffff;
+}
+
+.dashboardLogin__main {
+	display: flex;
+	flex-direction: column;
+	padding: 80px 0;
+	width: 100%;
+	max-width: 354px;
+}
+
+.dashboardLogin__title {
+	font-size: 24px;
+	font-weight: 700;
+	line-height: 26px;
+	letter-spacing: -0.03em;
+	margin: 0 0 32px 0;
+}
+
+.dashboardLogin__help {
+	font-size: 14px;
+	line-height: 21px;
+	margin: 0 0 16px 0;
+}
+
+.dashboardLogin__help--span {
+	font-weight: 600;
+}
+
+.dashboardLogin__input {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 16px;
+}
+
+.dashboardLogin__input--title {
+	font-size: 16px;
+	line-height: 24px;
+	color: #747474;
+	position: absolute;
+	height: 1px;
+	width: 1px;
+	padding: 0;
+	border: 0;
+	opacity: 0;
+	clip: rect(0 0 0 0);
+	overflow: hidden;
+	visibility: hidden;
+	clip: rect(0 0 0 0);
+}
+
+.dashboardLogin__input--field {
+	font-family: "Inter Tight", sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 24px;
+	padding: 12px 16px;
+	border-radius: 8px;
+	border: 1px solid #edeaea;
+	background-color: #ffffff;
+}
+
+.dashboardLogin__button {
+	font-family: "Inter Tight", sans-serif;
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 27px;
+	color: #ffffff;
+	cursor: pointer;
+	padding: 10.5px;
+	width: 100%;
+	border-radius: 12px;
+	border: 1px solid transparent;
+	background-color: #000000;
+}
+
+.dashboardLogin__button--secondary {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	color: #000000;
+	border: 1px solid #00000014;
+	background-color: #ffffff;
+	margin-top: 16px;
+}
+
+.dashboardLogin__or {
+	display: grid;
+	grid-template-columns: 1fr auto 1fr;
+	gap: 16px;
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 27px;
+	margin: 24px 0 24px 0;
+}
+
+.dashboardLogin__or--dec {
+	height: 1px;
+	width: 100%;
+	place-self: center;
+	background-color: #00000014;
+}
+
+.dashboardLogin__google {
+	font-family: "Inter Tight", sans-serif;
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 27px;
+	color: #000000;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	width: 100%;
+	padding: 10.5px;
+	border-radius: 12px;
+	border: 1px solid #00000014;
+	background-color: #ffffff;
+}
+
+.dashboardLogin__error {
+	margin-top: 10px;
+}
+
+@media screen and (min-width: 1024px) {
+	.dashboardLogin__main {
+		padding: 96px 0;
+	}
+}

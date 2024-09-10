@@ -1,0 +1,154 @@
+.dashboard__main {
+	position: relative;
+	padding: 0;
+}
+
+.dashboard__tabs {
+	display: flex;
+	gap: 4px;
+	padding: 5px 4px;
+	overflow-x: auto;
+	border-radius: 16px;
+	margin-bottom: 32px;
+	background-color: #f2f2f2;
+}
+
+.dashboard__tabs::-webkit-scrollbar {
+	display: none;
+}
+
+.dashboard__tabs {
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}
+
+.dashboard__tab {
+	flex: 1;
+	font-family: "Inter Tight", sans-serif;
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 20px;
+	white-space: nowrap;
+	cursor: pointer;
+	color: #a1a1a1;
+	border-style: none;
+	border-radius: 12px;
+	scroll-margin-left: 4px;
+	scroll-margin-right: 4px;
+	padding: 12px;
+	background-color: transparent;
+}
+
+.dashboard__tab:disabled {
+	cursor: initial;
+	color: #000000;
+	background-color: #ffffff;
+}
+
+.dashboard__content {
+	display: block;
+}
+
+.dashboard__content--hidden {
+	display: none;
+}
+
+.dashboard__logout {
+	display: none;
+	align-items: center;
+	gap: 9px;
+	padding: 8px 16px;
+
+	font-family: "Inter Tight", sans-serif;
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 17px;
+	color: #707070;
+	cursor: pointer;
+
+	border-radius: 32px;
+	border: 1px solid #00000014;
+	background-color: transparent;
+}
+
+.dashboard__logout.hidden {
+	display: none;
+}
+
+.dashboard__error {
+	margin-top: 10px;
+}
+
+.dashboard__scrollToTop {
+	position: fixed;
+	right: 16px;
+	bottom: 16px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 48px;
+	height: 48px;
+	cursor: pointer;
+	border-radius: 16px;
+	border: 1px solid #00000029;
+	background-color: #ffffff;
+	box-shadow: 0px 10px 16px 0px #0000001a;
+}
+
+.dashboard__title {
+	font-size: 24px;
+	font-weight: 600;
+	line-height: 26px;
+	margin: 0 0 24px 0;
+}
+
+.dashboard__records {
+	display: grid;
+	gap: 16px;
+}
+
+.swiper-slide {
+	padding: 0 16px;
+}
+
+/* SwiperNavigation */
+.swiperNavigation {
+	display: flex;
+	align-items: center;
+	gap: 24px;
+	padding: 0 16px;
+	margin-top: 16px;
+}
+
+@media screen and (min-width: 768px) {
+	.dashboard__tabs {
+		padding: 4px;
+	}
+
+	.dashboard__tab {
+		font-size: 16px;
+		line-height: 22px;
+		padding: 12px 24px;
+	}
+
+	.dashboard__records {
+		row-gap: 16px;
+		column-gap: 24px;
+		grid-template-columns: 1fr 1fr;
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	.dashboard__logout {
+		display: flex;
+	}
+
+	.swiper-slide {
+		padding: 0;
+	}
+
+	/* SwiperNavigation */
+	.swiperNavigation {
+		padding: 0;
+	}
+}

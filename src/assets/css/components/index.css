@@ -9,6 +9,18 @@
 @import "./form.css";
 @import "./productsSlider.css";
 
+@import "./dashboard/dashboardCard.css";
+@import "./dashboard/dashboardQuizzes.css";
+@import "./dashboard/dashboardCourseAboutHead.css";
+@import "./dashboard/dashboardLogin.css";
+@import "./dashboard/dashboardModal.css";
+@import "./dashboard/dashboardEmpty.css";
+
+@import "./dashboard/features/dashboardWorkshop.css";
+
+@import "./dashboard/widgets/dashboardOffers.css";
+@import "./dashboard/widgets/dashboardWorkbook.css";
+
 @import "./header.css";
 @import "./modal.css";
 @import "./main.css";

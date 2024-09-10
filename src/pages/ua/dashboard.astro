@@ -1,0 +1,20 @@
+---
+import { getLangFromUrl, useTranslations } from "@/assets/i18n/utils";
+
+import MainLayout from "@/layouts/MainLayout.astro";
+
+import { DashboardPage } from "@/components/Dashboard";
+import LogoutButton from "@/components/Dashboard/LogoutButton.astro";
+import WorkshopModal from "@/components/Workshops/WorkshopModal.astro";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<MainLayout title={t("meta.title-home")} description={t("meta.description-home")} hideBanner>
+	<LogoutButton slot="before-content" />
+	<DashboardPage client:only="react" />
+	<WorkshopModal />
+</MainLayout>
+
+<script src="../../assets/scripts/dashboard.ts"></script>

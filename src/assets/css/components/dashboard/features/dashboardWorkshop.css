@@ -1,0 +1,151 @@
+.dashboardWorkshop {
+	height: 100%;
+	border-radius: 20px;
+	background-color: #ffffff;
+	border: 1px solid #00000014;
+}
+
+.dashboardWorkshop__content {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding: 20px 16px 16px 16px;
+}
+
+.dashboardWorkshop__text {
+	margin-bottom: 12px;
+}
+
+.dashboardWorkshop__header {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 16px;
+	margin-bottom: 16px;
+}
+
+.dashboardWorkshop__title {
+	font-size: 20px;
+	font-weight: 600;
+	line-height: 22px;
+	word-wrap: anywhere;
+	margin: 0;
+}
+
+.dashboardWorkshop__tag {
+	padding: 6px 8px;
+	border-radius: 16px;
+	border: 1px solid #91c697;
+	background-color: #ccedc3;
+	font-size: 12px;
+	font-weight: 500;
+	line-height: 13px;
+	letter-spacing: -0.03em;
+	color: #6a956f;
+	margin: 0;
+}
+
+.dashboardWorkshop__tag--blue {
+	color: #6487a0;
+	border: 1px solid #91b0c6;
+	background-color: #c3d9ed;
+}
+
+.dashboardWorkshop__tag--pdf {
+	color: #ffffff;
+	border: 1px solid #00000014;
+	background: linear-gradient(114.54deg, #52addb 0%, #c88efd 100%);
+}
+
+.dashboardWorkshop__description {
+	font-size: 14px;
+	line-height: 22px;
+	color: #949494;
+	margin: 0;
+}
+
+.dashboardWorkshop__hr {
+	margin: 0 0 16px 0;
+	border: 0.5px solid #00000014;
+}
+
+.dashboardWorkshop__details {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	row-gap: 8px;
+	column-gap: 24px;
+	margin-bottom: 16px;
+}
+
+.dashboardWorkshop__details--one {
+	display: flex;
+	align-items: center;
+}
+
+.dashboardWorkshop__detail {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	font-size: 10px;
+	font-weight: 600;
+	line-height: 15px;
+	color: #a1a1a1;
+	margin: 0;
+}
+
+.dashboardWorkshop__detail--small {
+	font-size: 10px;
+	font-weight: 600;
+	line-height: 15px;
+	color: #a1a1a1;
+}
+
+.dashboardWorkshop__detail--bold {
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 21px;
+	color: #000000;
+}
+
+.dashboardWorkshop__button {
+	width: 100%;
+	font-family: "Inter Tight", sans-serif;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 24px;
+	color: #ffffff;
+	cursor: pointer;
+	text-align: center;
+	padding: 12px;
+	border-style: none;
+	border-radius: 16px;
+	background: linear-gradient(91.13deg, rgba(200, 142, 253, 0.2) 0%, rgba(81, 172, 218, 0.2) 100%);
+}
+
+.dashboardWorkshop__button--span {
+	background: linear-gradient(91.38deg, #c88efd 1.18%, #51acda 100.45%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+@media screen and (min-width: 768px) {
+	.dashboardWorkshop__content {
+		padding: 24px;
+	}
+
+	.dashboardWorkshop__tag {
+		padding: 8px 10px;
+	}
+
+	.dashboardWorkshop__meta {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.dashboardWorkshop__details {
+		display: flex;
+		align-items: center;
+		gap: 24px;
+	}
+}

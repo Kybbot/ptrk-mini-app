@@ -1,0 +1,90 @@
+.dashboardCourseAboutHead {
+	display: grid;
+	gap: 16px;
+}
+
+.dashboardCourseAboutHead__week {
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 21px;
+	margin: 0 0 8px 0;
+	color: #a1a1a1;
+}
+
+.dashboardCourseAboutHead__article {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	cursor: pointer;
+	padding: 16px 24px;
+	border-radius: 20px;
+	border: 1px solid #0000000a;
+	background-color: #f8f8f8;
+}
+
+.dashboardCourseAboutHead__text {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.dashboardCourseAboutHead__title {
+	font-size: 20px;
+	font-weight: 600;
+	line-height: 30px;
+	margin: 0;
+}
+
+.dashboardCourseAboutHead__time {
+	font-size: 8px;
+	font-weight: 500;
+	line-height: 11px;
+	color: #a1a1a1;
+	display: inline-block;
+	padding: 4px 8px;
+	margin: 0 auto 0 0;
+	border-radius: 6px;
+	background-color: #f2f2f2;
+}
+
+.dashboardCourseAboutHead__dec {
+	width: 40px;
+	height: 40px;
+	color: #ffffff;
+	border-radius: 50%;
+	padding: 13.8px 13px 13.8px 16px;
+	background: linear-gradient(129.17deg, #c88efd 12.82%, #51acda 90.17%);
+}
+
+.dashboardCourseAboutHead__btn {
+	position: absolute;
+	z-index: 2;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	font-size: 0;
+	line-height: 0;
+	padding: 0;
+	cursor: pointer;
+	border-style: none;
+	background-color: transparent;
+}
+
+@media screen and (min-width: 768px) {
+	.dashboardCourseAboutHead {
+		grid-template-columns: 1fr 1fr;
+		gap: 24px;
+	}
+
+	.dashboardCourseAboutHead__week {
+		font-size: 16px;
+		line-height: 24px;
+		margin: 0 0 10px 0;
+	}
+
+	.dashboardCourseAboutHead__article {
+		padding: 24px;
+	}
+}

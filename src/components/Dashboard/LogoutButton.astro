@@ -1,0 +1,58 @@
+---
+import { getLangFromUrl, useTranslations } from "@/assets/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<div class="main__top">
+	<p id="mainEmail" class="main__email"></p>
+	<button id="logout-button" type="button" class="dashboard__logout hidden">
+		{t("dashboard.logout")}
+		<svg
+			width="14"
+			height="13"
+			fill="none"
+			aria-hidden="true"
+			viewBox="0 0 14 13"
+			xmlns="http://www.w3.org/2000/svg"
+		>
+			<path
+				d="M10.333 3.16667L9.39301 4.10667L11.113 5.83333H4.33301V7.16667H11.113L9.39301 8.88667L10.333 9.83333L13.6663 6.5M1.66634 1.83333H6.99967V0.5H1.66634C0.933008 0.5 0.333008 1.1 0.333008 1.83333V11.1667C0.333008 11.9 0.933008 12.5 1.66634 12.5H6.99967V11.1667H1.66634V1.83333Z"
+				fill="#707070"></path>
+		</svg>
+	</button>
+</div>
+
+<script>
+	const logoutButton = document.querySelector("#logout-button") as HTMLButtonElement;
+	const mainEmail = document.querySelector("#mainEmail") as HTMLParagraphElement;
+
+	const isAuthorized = !!localStorage.getItem("accessToken");
+
+	if (!isAuthorized) {
+		logoutButton.classList.add("hidden");
+	} else {
+		mainEmail.textContent = localStorage.getItem("dashboardEmail") || "";
+		logoutButton.classList.remove("hidden");
+	}
+
+	window.addEventListener("storage", () => {
+		const isAuthorized = !!localStorage.getItem("accessToken");
+
+		if (!isAuthorized) {
+			logoutButton.classList.add("hidden");
+		} else {
+			mainEmail.textContent = localStorage.getItem("dashboardEmail") || "";
+			logoutButton.classList.remove("hidden");
+		}
+	});
+
+	logoutButton.addEventListener("click", () => {
+		localStorage.removeItem("accessToken");
+		localStorage.removeItem("refreshToken");
+		localStorage.removeItem("dashboardEmail");
+
+		window.location.reload();
+	});
+</script>

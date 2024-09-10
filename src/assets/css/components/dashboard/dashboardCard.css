@@ -1,0 +1,109 @@
+.dashboardCard {
+	z-index: 1;
+	position: relative;
+	aspect-ratio: 16 / 9;
+}
+
+.dashboardCard::after {
+	position: absolute;
+	z-index: 0;
+	content: "";
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	border-radius: 12px;
+	background: linear-gradient(270deg, rgba(0, 0, 0, 0) 23.68%, rgba(0, 0, 0, 0.4) 100%);
+}
+
+.dashboardCard__img {
+	width: 100%;
+	height: 100%;
+	display: block;
+	object-fit: cover;
+	border-radius: 12px;
+}
+
+.dashboardCard__title {
+	position: absolute;
+	z-index: 2;
+	top: 24px;
+	left: 24px;
+	max-width: 260px;
+	font-size: 20px;
+	font-weight: 600;
+	line-height: 28px;
+	word-wrap: anywhere;
+	color: #ffffff;
+	margin: 0;
+}
+
+.dashboardCard__time {
+	position: absolute;
+	z-index: 2;
+	left: 24px;
+	bottom: 24px;
+	font-size: 8px;
+	font-weight: 500;
+	line-height: 11px;
+	color: #ffffff;
+	margin: 0;
+	padding: 3px 8px 4px 8px;
+	border-radius: 4px;
+	background-color: #00000066;
+}
+
+.dashboardCard__svg {
+	position: absolute;
+	z-index: 2;
+	top: 24px;
+	right: 24px;
+}
+
+.dashboardCard__btn {
+	position: absolute;
+	z-index: 2;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	font-size: 0;
+	line-height: 0;
+	padding: 0;
+	cursor: pointer;
+	border-style: none;
+	background-color: transparent;
+}
+
+.dashboardCard__date {
+	position: absolute;
+	z-index: 2;
+	left: 24px;
+	bottom: 24px;
+	font-size: 12px;
+	font-weight: 500;
+	line-height: 13px;
+	color: #6487a0;
+	letter-spacing: -0.03em;
+	margin: 0;
+	padding: 6px 8px;
+	border-radius: 16px;
+	border: 1px solid #91b0c6;
+	background-color: #c3d9ed;
+}
+
+@media screen and (min-width: 768px) {
+	.dashboardCard__title {
+		max-width: 160px;
+		line-height: 24px;
+	}
+
+	.dashboardCard__time {
+		font-size: 10px;
+		font-weight: 400;
+		line-height: 12px;
+	}
+
+	.dashboardCard__date {
+		left: 16px;
+		bottom: 16px;
+	}
+}

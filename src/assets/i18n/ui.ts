@@ -419,7 +419,9 @@ export const ui = {
 		"dashboardLogin.or": "або",
 		"dashboardLogin.google": "Увійти за допомогою Google",
 
-		"dashboardWorkbook.label": "Мова скачування",
+		"dashboardWorkbook.titel": "Завантажити воркбук",
+		"dashboardWorkbook.text1": "порожній",
+		"dashboardWorkbook.text2": "заповнений",
 
 		"dashboardEmpty.title1": "Упс, ви поки що нічого не купили :(",
 		"dashboardEmpty.title2": "Упс, ви ще не проходили тестів :(",
@@ -853,7 +855,9 @@ export const ui = {
 		"dashboardLogin.or": "или",
 		"dashboardLogin.google": "Войти с помощью Google",
 
-		"dashboardWorkbook.label": "Язык скачивания",
+		"dashboardWorkbook.titel": "Скачать воркбук",
+		"dashboardWorkbook.text1": "пустой",
+		"dashboardWorkbook.text2": "заполненный",
 
 		"dashboardEmpty.title1": "Упс, вы пока ничего не купили :(",
 		"dashboardEmpty.title2": "Упс, вы еще не проходили тестов :(",
