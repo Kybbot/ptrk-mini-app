@@ -37,23 +37,6 @@ const t = useTranslations(lang);
 	containerClass="quiResult"
 >
 	<section class="quiResult__container">
-		<a href={`${locale}`} class="quiResult__back">
-			<svg
-				width="12"
-				height="8"
-				fill="none"
-				viewBox="0 0 12 8"
-				aria-hidden="true"
-				xmlns="http://www.w3.org/2000/svg"
-			>
-				<path
-					d="M3.80916 7L1 4L3.80916 1L4.28131 1.50425L2.27816 3.64347L11 3.64347L11 4.35657L2.27822 4.35657L4.28131 6.49575L3.80916 7Z"
-					fill="#A09F9F"
-					stroke="#A09F9F"
-					stroke-width="0.3"></path>
-			</svg>
-			{t("quiz.backToMain")}
-		</a>
 		<div class="quiResult__header">
 			<h1 class="quiResult__titel">{quiz.shortTitle[lang]}</h1>
 			<p class="quiResult__subTitle">{result ? t("quiz.resultHeader") : t("quiz.errorResultHeader")}</p>

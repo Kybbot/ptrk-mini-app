@@ -52,12 +52,9 @@ const lang = getLangFromUrl(Astro.url);
 	</head>
 	<body>
 		<Banner hideBanner={hideBanner} />
-		<div
-			class={`container ${showMobileMenu ? "container--active" : ""}
-			${quizContainer ? "container--quiz" : ""}`}
-		>
+		<div class={`container ${showMobileMenu ? "container--active" : ""}`}>
 			<Header />
-			<main class={`main ${quizContainer ? "main--quiz" : ""}`}>
+			<main class="main">
 				<slot name="before-content" />
 				<div class={`main__container ${containerClass || ""}`}>
 					<slot />

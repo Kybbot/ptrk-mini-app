@@ -6,27 +6,6 @@
 	margin-bottom: 32px;
 }
 
-.quiResult__back {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	gap: 8px;
-	padding: 13px 20px;
-	margin-bottom: 32px;
-	border-radius: 32px;
-	border: 1px solid #a09f9f;
-	background-color: transparent;
-	width: fit-content;
-
-	font-family: "Inter Tight", sans-serif;
-	font-size: 14px;
-	line-height: 14px;
-	text-decoration: none;
-	color: var(--text-grey-link);
-
-	cursor: pointer;
-}
-
 .quiResult__titel {
 	font-size: 24px;
 	font-weight: 600;
