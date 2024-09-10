@@ -189,13 +189,6 @@ export const DashboardLogin: FC<DashboardLoginProps> = ({ handleAuthorized }) =>
 						</button>
 					)}
 				</form>
-				{formState === "email" && (
-					<>
-						<p className="dashboardLogin__or">
-							<span className="dashboardLogin__or--dec"></span>
-						</p>
-					</>
-				)}
 				{error && <p className="dashboardLogin__error">{error}</p>}
 			</div>
 		</div>
