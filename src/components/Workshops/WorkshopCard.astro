@@ -1,0 +1,79 @@
+---
+import { getLangFromUrl, useTranslations } from "@/assets/i18n/utils";
+
+import { getDate } from "@/utils/getDate";
+
+import { type Workshop } from "@/@types/workshops";
+
+interface Props {
+	workshop: Workshop;
+}
+
+const { workshop } = Astro.props;
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<article class="workshop">
+	<div class="workshop__picture">
+		<img
+			class="workshop__img"
+			src={workshop.imageSrc}
+			srcset={workshop.imageSrcSet}
+			aria-hidden="true"
+			height="184"
+			width="184"
+			alt={workshop.title[lang]}
+		/>
+	</div>
+	<div class="workshop__content">
+		<div class="workshop__text">
+			<h2 class="workshop__title">
+				{workshop.title[lang]}
+				<!-- {
+					workshop.record && (
+						<span class="workshop__tag">
+							{t("workshopCard.tag1")} {getDate(workshop.date, true, lang)}
+						</span>
+					)
+				} -->
+			</h2>
+			<p class="workshop__description">
+				{workshop.description[lang]}
+			</p>
+			<hr class="workshop__hr" />
+		</div>
+		<div class="workshop__meta">
+			<div class={`workshop__details ${workshop.record ? "workshop__details--one" : ""}`}>
+				{
+					!workshop.record && (
+						<>
+							<p class="workshop__detail">
+								<span class="workshop__detail--small">{t("workshopCard.date")}</span>
+								<span class="workshop__detail--bold">{getDate(workshop.date, true, lang)}</span>
+							</p>
+							<p class="workshop__detail">
+								<span class="workshop__detail--small">{t("workshopCard.start")}</span>
+								<span class="workshop__detail--bold">
+									{workshop.start} ({t("workshopCard.startText")})
+								</span>
+							</p>
+						</>
+					)
+				}
+				<p class="workshop__detail">
+					<span class="workshop__detail--small">{t("workshopCard.time")}</span>
+					<span class="workshop__detail--bold">{workshop.timing} {t("workshopCard.timeText")}</span>
+				</p>
+				<p class="workshop__detail">
+					<span class="workshop__detail--small">{t("workshopCard.price")}</span>
+					<span class="workshop__detail--bold">{workshop.priceUAH}</span>
+				</p>
+			</div>
+			<button type="button" class="workshop__button workshop__buy" disabled data-value={workshop.id}>
+				{workshop.record ? t("workshopCard.buy1") : t("workshopCard.buy2")}
+			</button>
+		</div>
+	</div>
+</article>

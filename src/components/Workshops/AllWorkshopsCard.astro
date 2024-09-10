@@ -1,0 +1,36 @@
+---
+import { getLangFromUrl, useTranslations } from "@/assets/i18n/utils";
+
+import { workshops } from "./constants";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<article id="workshopsAll" class="workshopsAll">
+	<div class="workshopsAll__content">
+		<span class="workshopsAll__tag">{t("allWorkshops.tag")}</span>
+		<h2 class="workshopsAll__title">{t("allWorkshops.title")}</h2>
+		<p class="workshopsAll__price--mobile">
+			<span class="workshopsAll__price--bold">2 000 ₴</span>
+			{t("allWorkshops.text")}
+		</p>
+		<hr class="workshopsAll__hr" />
+		<div class="workshopsAll__description">
+			{t("allWorkshops.description")}
+			<ul class="workshopsAll__list">
+				{workshops.map((workshop) => <li class="workshopsAll__item">/ {workshop.title[lang]}</li>)}
+			</ul>
+		</div>
+	</div>
+	<div class="workshopsAll__meta">
+		<span class="workshopsAll__price">
+			{t("allWorkshops.price1")}
+			<span class="workshopsAll__price--bold">2 000 ₴</span>
+		</span>
+		<span class="workshopsAll__price2">{t("allWorkshops.price2")}</span>
+		<button type="button" class="workshopsAll__button workshop__buy" disabled data-value="5">
+			{t("allWorkshops.btn")}
+		</button>
+	</div>
+</article>

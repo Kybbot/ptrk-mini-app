@@ -1,0 +1,132 @@
+---
+import { getLangFromUrl, useTranslations } from "@/assets/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<div id="workshopModal" class="modal workshopModal">
+	<div class="modal__content workshopModal__content">
+		<div class="workshopModal__container">
+			<button id="closeWorkshopModal" type="button" class="workshopModal__close" aria-label="Close modal">
+				<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path
+						fill-rule="evenodd"
+						clip-rule="evenodd"
+						d="M16 26.5236C10.2104 26.5236 5.5 21.7896 5.5 16C5.5 10.2103 10.2104 5.49995 16 5.49995C21.7896 5.49995 26.5 10.2104 26.5 16C26.5 21.7896 21.7896 26.5236 16 26.5236ZM19.1819 11.7576C19.4748 11.4648 19.9495 11.4648 20.2424 11.7576C20.5356 12.0501 20.5356 12.5249 20.2424 12.8181L17.0605 16L20.2424 19.1819C20.5352 19.4744 20.5352 19.9499 20.2424 20.2424C19.9495 20.5353 19.4748 20.5353 19.1819 20.2424L16 17.0605L12.8181 20.2424C12.5249 20.5353 12.0501 20.5353 11.7573 20.2424C11.4644 19.9499 11.4644 19.4744 11.7573 19.1819L14.9391 16L11.7573 12.8181C11.4644 12.5252 11.4644 12.0505 11.7573 11.7576C12.0505 11.4648 12.5252 11.4648 12.8181 11.7576L16 14.9395L19.1819 11.7576Z"
+						fill="#484848"></path>
+					<path
+						fill-rule="evenodd"
+						clip-rule="evenodd"
+						d="M4 16C4 9.37262 9.37262 4 16 4C22.6278 4 28 9.37262 28 16C28 22.6278 22.6278 28 16 28C9.37262 28 4 22.6278 4 16ZM5.5 16C5.5 21.7896 10.2104 26.5236 16 26.5236C21.7896 26.5236 26.5 21.7896 26.5 16C26.5 10.2104 21.7896 5.49995 16 5.49995C10.2104 5.49995 5.5 10.2103 5.5 16Z"
+						fill="#484848"></path>
+				</svg>
+			</button>
+			<div class="workshopModal__top">
+				<p class="workshopModal__text">{t("workshopModal.title")}</p>
+			</div>
+			<div class="workshopModal__main">
+				<form class="workshopModal__form">
+					<label for="userEmail" class="workshopModal__input">
+						<span class="workshopModal__input--title">{t("workshopModal.email")}</span>
+						<input
+							required
+							type="email"
+							id="userEmail"
+							name="userEmail"
+							placeholder="E-mail"
+							autocomplete="email"
+							class="workshopModal__input--field"
+						/>
+					</label>
+					<label id="oneWorkshopLabel" for="oneWorkshop" class="workshopModal__radio">
+						<input
+							checked
+							required
+							value="1"
+							type="radio"
+							name="workshop"
+							id="oneWorkshop"
+							class="workshopModal__radio--field"
+						/>
+						<span id="oneWorkshopTitle" class="workshopModal__radio--title">Семинар «Самооценка»</span>
+					</label>
+					<label id="allWorkshopLabel" for="allWorkshop" class="workshopModal__radio">
+						<input
+							required
+							value="5"
+							type="radio"
+							name="workshop"
+							id="allWorkshop"
+							class="workshopModal__radio--field"
+						/>
+						<span id="allWorkshopTitle" class="workshopModal__radio--title"
+							>{t("workshopModal.allWorkshop")}</span
+						>
+					</label>
+					<fieldset id="workshopModalAddWorkbook" class="workshopModal__fieldset">
+						<legend class="workshopModal__legend">{t("workshopModal.workbook")}</legend>
+						<label for="workbook" class="workshopModal__checkbox">
+							<input type="checkbox" name="workbook" id="workbook" class="workshopModal__checkbox--input" />
+							<svg width="16" height="16" viewBox="-4 -4 39 39" aria-hidden="true" focusable="false">
+								<rect
+									rx="8"
+									ry="8"
+									x="-2"
+									y="-2"
+									width="35"
+									height="35"
+									fill="none"
+									stroke-width="2"
+									stroke="currentColor"
+									class="checkbox-bg"></rect>
+								<polyline
+									fill="none"
+									stroke-width="4"
+									stroke="transparent"
+									class="checkbox-cm"
+									points="4,14 12,23 28,5"></polyline>
+							</svg>
+							<span class="workshopModal__checkbox--title">{t("workshopModal.workbookDescription")}</span>
+						</label>
+					</fieldset>
+					<p id="workshopModalErrorMessage" class="workshopModal__errorMessage"></p>
+					<div id="workshopModalPromo" class="workshopModal__promo">
+						<input
+							type="text"
+							id="promoCode"
+							name="promoCode"
+							placeholder={t("workshopModal.promoPlaceholder")}
+							class="workshopModal__input--field"
+						/>
+						<button
+							type="button"
+							id="applyPromoCode"
+							class="workshopModal__button workshopModal__button--promo"
+						>
+							{t("workshopModal.applyPromoCode")}
+						</button>
+						<p id="workshopModalPromoSuccess" class="workshopModal__promo--success">-200 ₴</p>
+					</div>
+					<p id="workshopModalPromoError" class="workshopModal__promo--error">
+						{t("workshopModal.promoError")}
+					</p>
+					<hr class="workshopModal__hr" />
+					<p class="workshopModal__result">
+						{t("workshopModal.result")}
+						<span class="workshopModal__result--bold">699 ₴</span>
+					</p>
+					<button type="submit" id="workshopModalSubmit" class="workshopModal__button">
+						<span>{t("workshopModal.btn")}</span>
+						<div class="workshopModal__button--loader loader">
+							<div class="loader__dot"></div>
+							<div class="loader__dot"></div>
+							<div class="loader__dot"></div>
+						</div>
+					</button>
+					<p class="workshopModal__message"></p>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
