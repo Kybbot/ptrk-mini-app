@@ -1,11 +1,12 @@
 // @ts-check
 import { defineConfig } from "astro/config";
-import vercel from "@astrojs/vercel/serverless";
+import cloudflare from "@astrojs/cloudflare";
+
 
 // https://astro.build/config
 export default defineConfig({
 	output: "hybrid",
-	adapter: vercel(),
+	adapter: cloudflare(),
 	i18n: {
 		defaultLocale: "ru",
 		locales: ["ru", "ua"],
