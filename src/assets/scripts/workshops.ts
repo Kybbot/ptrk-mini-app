@@ -203,15 +203,16 @@ workshopModalForm?.addEventListener("submit", async (event) => {
 				? {
 						seminarIds: [+workshop],
 						workbookIds: [1],
-				  }
+					}
 				: {
 						seminarIds: [+workshop],
-				  }),
+					}),
 			email: userEmail,
 			phone: "",
 			firstName: "",
 			addressFe: address,
 			lang: lang,
+			tgMiniApp: true,
 			...(referralCode ? { referralCode } : {}),
 			...(utmContent ? { utmContent } : {}),
 		};

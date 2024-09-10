@@ -46,7 +46,7 @@ export const Quizzes: FC<QuizzesProps> = ({ isHidden, handleAuthorized }) => {
 			}
 
 			const response = await fetch(
-				`${import.meta.env.PUBLIC_API_URL}/quiz/submit/by-email?limit=4&page=${
+				`${import.meta.env.PUBLIC_API_URL}/quiz/submit/by-email?limit=4&tgMiniApp=true&page=${
 					dashboardQuizzes?.nextPage || ""
 				}`,
 				{

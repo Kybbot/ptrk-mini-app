@@ -20,7 +20,7 @@ const oneWorkshopTitle = document.querySelector("#oneWorkshopTitle") as HTMLSpan
 const priceData = document.querySelector(".workshopModal__result--bold") as HTMLSpanElement;
 
 const workshopModalErrorMessage = document.querySelector(
-	"#workshopModalErrorMessage"
+	"#workshopModalErrorMessage",
 ) as HTMLParagraphElement;
 const workshopModalSubmit = document.querySelector("#workshopModalSubmit") as HTMLButtonElement;
 const workshopModalResult = document.querySelector(".workshopModal__message") as HTMLParagraphElement;
@@ -107,6 +107,7 @@ workshopModalForm?.addEventListener("submit", async (event) => {
 			firstName: "",
 			addressFe: address,
 			lang: lang,
+			tgMiniApp: true,
 			...(referralCode ? { referralCode } : {}),
 			...(utmContent ? { utmContent } : {}),
 		};

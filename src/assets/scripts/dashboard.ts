@@ -117,6 +117,7 @@ workshopModalForm.addEventListener("submit", async (event) => {
 			addressFe: address,
 			lang: lang,
 			utmContent: "dashboard",
+			tgMiniApp: true,
 			...(referralCode ? { referralCode } : {}),
 		};
 

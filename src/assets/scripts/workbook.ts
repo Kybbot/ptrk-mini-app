@@ -249,6 +249,7 @@ workshopModalForm?.addEventListener("submit", async (event) => {
 			firstName: "",
 			addressFe: address,
 			lang: lang,
+			tgMiniApp: true,
 			...(referralCode ? { referralCode } : {}),
 			...(utmContent ? { utmContent } : {}),
 		};
