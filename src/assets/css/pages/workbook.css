@@ -1,0 +1,396 @@
+.workbook__header {
+	margin-bottom: 24px;
+}
+
+.workbook__title {
+	font-size: 24px;
+	font-weight: 600;
+	line-height: 26px;
+	letter-spacing: -0.03em;
+	margin: 0;
+}
+
+.workbook__video {
+	position: relative;
+	margin-bottom: 24px;
+	aspect-ratio: 16 / 9;
+}
+
+.workbook__video-play.workbook__video::before {
+	display: none;
+}
+
+.workbook__video::before {
+	position: absolute;
+	content: "";
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border-radius: 12px;
+	background: linear-gradient(270deg, rgba(0, 0, 0, 0) 23.68%, rgba(0, 0, 0, 0.4) 100%);
+}
+
+.workbook__player {
+	display: block;
+	width: 100%;
+	border-radius: 12px;
+	aspect-ratio: 16 / 9;
+}
+
+.workbook__play {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+	background-color: transparent;
+}
+
+.workbook__play--hidden {
+	display: none;
+}
+
+.workbook__about {
+	margin-bottom: 40px;
+}
+
+.workbook__subTitle {
+	font-size: 20px;
+	font-weight: 600;
+	line-height: 34px;
+	margin: 0 0 8px 0;
+}
+
+.workbook__subTitle--slider {
+	padding: 0 16px;
+}
+
+.workbook__description {
+	font-size: 14px;
+	line-height: 24px;
+	margin: 0;
+}
+
+.workbook__ol {
+	font-size: 14px;
+	line-height: 24px;
+	margin: 0;
+	padding-left: 16px;
+}
+
+.workbook__subOl {
+	margin: 0 0 20px 0;
+	padding-left: 0;
+}
+
+.workbook__buy {
+	position: relative;
+	display: grid;
+	grid-template-columns: 1fr 104px;
+	width: 100%;
+	padding: 16px 16px 16px 24px;
+	margin-bottom: 24px;
+	cursor: pointer;
+	color: #ffffff;
+	border-style: none;
+	border-radius: 16px;
+	background: linear-gradient(90deg, #ca8bfc 0%, #52addb 100%);
+}
+
+.workbook__buy--second {
+	margin-bottom: 0;
+}
+
+.workbook__buy--about {
+	display: flex;
+	flex-direction: column;
+	font-family: "Inter Tight", sans-serif;
+	font-size: 14px;
+	line-height: 24px;
+	text-align: left;
+}
+
+.workbook__buy--price {
+	font-weight: 700;
+}
+
+.workbook__buy--through {
+	text-decoration: line-through;
+}
+
+.workbook__buy--sale {
+	font-weight: 700;
+}
+
+.workbook__buy--action {
+	height: fit-content;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: "Inter Tight", sans-serif;
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 24px;
+	color: #81a0e8;
+	padding: 12px 24px;
+	border-radius: 12px;
+	background-color: #ffffff;
+}
+
+.workbook__cards {
+	display: grid;
+	gap: 16px;
+	margin-bottom: 48px;
+}
+
+/* WorkbookCard */
+.workbookCard {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	border-radius: 16px;
+	border: 1px solid #00000014;
+	background-color: #ffffff;
+	box-shadow: 0px 4px 20px -8px #00000029;
+}
+
+.workbookCard--accent {
+	border: none;
+	color: #ffffff;
+	box-shadow: 0px 4px 20px 0px #00000029;
+	background: linear-gradient(149.88deg, #d5a3fd 0%, #75bde3 100%);
+}
+
+.workbookCard__wrapper {
+	position: relative;
+}
+
+.workbookCard__tag {
+	position: absolute;
+	top: 16px;
+	right: 16px;
+	display: inline-block;
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 24px;
+	text-transform: uppercase;
+	margin: 0;
+	padding: 4px 16px;
+	border-radius: 16px;
+	background: linear-gradient(127.3deg, #ff4444 15.48%, #ea9696 130.35%);
+}
+
+.workbookCard__header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 16px;
+	padding: 24px 24px 0 24px;
+}
+
+.workbookCard__price {
+	font-size: 32px;
+	font-weight: 700;
+	line-height: 42px;
+	margin: 0;
+}
+
+.workbookCard__price--through {
+	color: #747474;
+	text-decoration: line-through;
+}
+
+.workbookCard__about {
+	padding: 0 24px;
+	margin-bottom: 24px;
+}
+
+.workbookCard__title {
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 27px;
+	margin: 0;
+}
+
+.workbookCard--accent .workbookCard__title {
+	margin: 0 0 8px 0;
+}
+
+.workbookCard__description {
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 24px;
+	margin: 0;
+}
+
+.workbookCard__description--bold {
+	font-weight: 800;
+}
+
+.workbookCard__hr {
+	margin: 0 0 24px 0;
+	border: 0.5px solid #00000014;
+}
+
+.workbookCard--accent .workbookCard__hr {
+	border: 0.5px solid #ffffff29;
+}
+
+.workbookCard__list {
+	display: grid;
+	gap: 8px;
+	padding: 0 24px;
+	margin-bottom: 24px;
+}
+
+.workbookCard__text {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-size: 14px;
+	line-height: 24px;
+	color: #747474;
+	margin: 0;
+}
+
+.workbookCard--accent .workbookCard__text {
+	color: #ffffff;
+}
+
+.workbookCard__icon {
+	flex: 0 0 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 20px;
+	height: 20px;
+	color: #ffffff;
+	border-radius: 50%;
+	background: linear-gradient(180deg, #c88efd 0%, #51acda 100%);
+}
+
+.workbookCard--accent .workbookCard__icon {
+	color: #a6b1f1;
+	background: none;
+	background-color: #ffffff;
+}
+
+.workbookCard__icon--disabled {
+	background: none;
+	background-color: #ebebeb;
+}
+
+.workbookCard__footer {
+	padding: 0 24px 24px 24px;
+}
+
+.workbookCard__btn {
+	font-family: "Inter Tight", sans-serif;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 21px;
+	color: #ffffff;
+	cursor: pointer;
+	width: 100%;
+	padding: 12px;
+	border-radius: 12px;
+	background-color: #000000;
+}
+
+.workbookCard--accent .workbookCard__btn {
+	color: #abaff2;
+	background-color: #ffffff;
+}
+
+.workbook__details {
+	margin-bottom: 48px;
+}
+
+.workbook__slider {
+	margin: 0 -16px 32px -16px;
+}
+
+.swiper.workbookSwiper {
+	padding: 0 16px;
+}
+
+.swiper-slide.workbookSwiper__slide {
+	padding: 0;
+	width: 56%;
+}
+
+.swiper-slide.workbookSwiper__slide--secondary {
+	height: auto;
+}
+
+.workbookSwiper__slide--secondary {
+	border-radius: 20px;
+	border: 1px solid #00000014;
+}
+
+.workbookSwiper__link {
+	height: 100%;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+	position: relative;
+	text-decoration: none;
+}
+
+.workbookSwiper__link.tgLinkBtn {
+	width: 100%;
+	background-color: transparent;
+}
+
+.workbookSwiper__img {
+	width: 100%;
+	height: auto;
+	aspect-ratio: 13 / 16;
+	display: block;
+	object-fit: cover;
+	border-radius: 20px;
+}
+
+.workbookSwiper__name {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 24px;
+	text-align: center;
+	color: #ffffff;
+	margin: 0;
+	padding: 16px;
+	background: #ffffff1a;
+	border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 20px;
+	backdrop-filter: blur(10px);
+}
+
+.workbookSwiper__icon {
+	width: 48px;
+	height: 48px;
+	margin-bottom: 24px;
+}
+
+.workbookSwiper__text {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	font-size: 16px;
+	line-height: 24px;
+	text-align: center;
+	color: #000000;
+	margin: 0;
+}
+
+.workbookSwiper__text--span {
+	font-weight: 600;
+	text-decoration: underline;
+}
