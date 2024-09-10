@@ -1,0 +1,191 @@
+---
+import { getLangFromUrl, useTranslations } from "@/assets/i18n/utils";
+
+import MainLayout from "@/layouts/MainLayout.astro";
+
+import WorkshopModal from "@/components/Workshops/WorkshopModal.astro";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<MainLayout
+	title={t("meta.title-subbotnik")}
+	description={t("meta.description-subbotnik")}
+	hideBanner
+	alternate="/subbotnik"
+	canonical="/subbotnik"
+>
+	<section class="subbotnik">
+		<div class="subbotnik__header">
+			<h1 class="subbotnik__title">{t("subbotnik.title")}</h1>
+
+			<div class="subbotnik__section1">
+				<p class="subbotnik__description">{t("subbotnik.description1")}</p>
+				<p class="subbotnik__description subbotnik__description--bold">{t("subbotnik.description2")}</p>
+				<div class="subbotnik__days">
+					<div class="subbotnik__day">
+						<p class="subbotnik__name">
+							<span class="subbotnik__name--span">{t("subbotnik.name1")}</span>
+						</p>
+						<p class="subbotnik__about">{t("subbotnik.about1")} <br /> {t("subbotnik.about2")}</p>
+					</div>
+					<div class="subbotnik__day">
+						<p class="subbotnik__name">
+							<span class="subbotnik__name--span">{t("subbotnik.name2")}</span>
+						</p>
+						<p class="subbotnik__about">{t("subbotnik.about3")} <br /> {t("subbotnik.about4")}</p>
+					</div>
+				</div>
+				<p class="subbotnik__description subbotnik__description--light">{t("subbotnik.description3")}</p>
+				<p class="subbotnik__description subbotnik__description--light">{t("subbotnik.description4")}</p>
+				<p class="subbotnik__info">
+					<span class="subbotnik__info--span">{t("subbotnik.info")}</span>
+				</p>
+				<p class="subbotnik__description subbotnik__description--italic">{t("subbotnik.description5")}</p>
+			</div>
+
+			<div class="subbotnik__section2">
+				<h2 class="subbotnik__subTitle">{t("subbotnik.subTitle1")}</h2>
+				<ul class="subbotnik__ul">
+					<li class="subbotnik__li">
+						<span class="subbotnik__li--span">/</span>
+						{t("subbotnik.li1")}
+					</li>
+					<li class="subbotnik__li">
+						<span class="subbotnik__li--span">/</span>
+						{t("subbotnik.li2")}
+					</li>
+					<li class="subbotnik__li">
+						<span class="subbotnik__li--span">/</span>
+						{t("subbotnik.li3")}
+					</li>
+					<li class="subbotnik__li">
+						<span class="subbotnik__li--span">/</span>
+						{t("subbotnik.li4")}
+					</li>
+					<li class="subbotnik__li">
+						<span class="subbotnik__li--span">/</span>
+						{t("subbotnik.li5")}
+					</li>
+					<li class="subbotnik__li">
+						<span class="subbotnik__li--span">/</span>
+						{t("subbotnik.li6")}
+					</li>
+				</ul>
+			</div>
+
+			<div class="subbotnik__section3">
+				<h2 class="subbotnik__subTitle">{t("subbotnik.subTitle2")}</h2>
+				<div class="subbotnik__topics">
+					<article class="subbotnikTopic">
+						<div class="subbotnikTopic__header">
+							<h3 class="subbotnikTopic__title">{t("subbotnikTopic.title1")}</h3>
+							<p class="subbotnikTopic__number">01</p>
+						</div>
+						<ul class="subbotnikTopic__ul">
+							<li class="subbotnikTopic__li">{t("subbotnikTopic.li1")}</li>
+							<li class="subbotnikTopic__li">{t("subbotnikTopic.li2")}</li>
+							<li class="subbotnikTopic__li">{t("subbotnikTopic.li3")}</li>
+							<li class="subbotnikTopic__li">{t("subbotnikTopic.li4")}</li>
+						</ul>
+					</article>
+					<article class="subbotnikTopic">
+						<div class="subbotnikTopic__header">
+							<h3 class="subbotnikTopic__title">{t("subbotnikTopic.title2")}</h3>
+							<p class="subbotnikTopic__number">02</p>
+						</div>
+						<ul class="subbotnikTopic__ul">
+							<li class="subbotnikTopic__li">{t("subbotnikTopic.li5")}</li>
+							<li class="subbotnikTopic__li">{t("subbotnikTopic.li6")}</li>
+							<li class="subbotnikTopic__li">{t("subbotnikTopic.li7")}</li>
+							<li class="subbotnikTopic__li">{t("subbotnikTopic.li8")}</li>
+						</ul>
+					</article>
+					<article class="subbotnikTopic">
+						<div class="subbotnikTopic__header">
+							<h3 class="subbotnikTopic__title">{t("subbotnikTopic.title3")}</h3>
+							<p class="subbotnikTopic__number">03</p>
+						</div>
+						<ul class="subbotnikTopic__ul">
+							<li class="subbotnikTopic__li">{t("subbotnikTopic.li9")}</li>
+							<li class="subbotnikTopic__li">{t("subbotnikTopic.li10")}</li>
+							<li class="subbotnikTopic__li">{t("subbotnikTopic.li11")}</li>
+							<li class="subbotnikTopic__li">{t("subbotnikTopic.li12")}</li>
+						</ul>
+					</article>
+					<article class="subbotnikTopic">
+						<div class="subbotnikTopic__header">
+							<h3 class="subbotnikTopic__title">{t("subbotnikTopic.title4")}</h3>
+							<p class="subbotnikTopic__number">04</p>
+						</div>
+						<ul class="subbotnikTopic__ul">
+							<li class="subbotnikTopic__li">{t("subbotnikTopic.li13")}</li>
+							<li class="subbotnikTopic__li">{t("subbotnikTopic.li14")}</li>
+							<li class="subbotnikTopic__li">{t("subbotnikTopic.li15")}</li>
+							<li class="subbotnikTopic__li">{t("subbotnikTopic.li16")}</li>
+						</ul>
+					</article>
+				</div>
+			</div>
+
+			<article class="subbotnikCard">
+				<div class="subbotnikCard__picture">
+					<img
+						class="subbotnikCard__img"
+						src="/images/subbotnikD.jpg"
+						srcset="/images/subbotnikD@2x.jpg"
+						aria-hidden="true"
+						height="184"
+						width="184"
+						alt={t("subbotnik.title")}
+					/>
+				</div>
+				<div class="subbotnikCard__content">
+					<div class="subbotnikCard__text">
+						<h2 class="subbotnikCard__title">{t("subbotnikCard.title")}</h2>
+						<p class="subbotnikCard__description">{t("subbotnikCard.description")}</p>
+						<hr class="subbotnikCard__hr" />
+					</div>
+					<div class="subbotnikCard__meta">
+						<div class="subbotnikCard__details">
+							<p class="subbotnikCard__detail">
+								<span class="subbotnikCard__detail--small">{t("subbotnikCard.detail1")}</span>
+								<span class="subbotnikCard__detail--bold">01.09.2024</span>
+							</p>
+							<p class="subbotnikCard__detail">
+								<span class="subbotnikCard__detail--small">{t("subbotnikCard.detail2")}</span>
+								<span class="subbotnikCard__detail--bold">
+									~2
+									{t("subbotnikCard.detail3")}
+								</span>
+							</p>
+							<p class="subbotnikCard__detail">
+								<span class="subbotnikCard__detail--small">{t("subbotnikCard.detail4")}</span>
+								<span class="subbotnikCard__detail--bold">
+									11:00
+									{t("subbotnikCard.detail6")}
+								</span>
+							</p>
+							<p class="subbotnikCard__detail">
+								<span class="subbotnikCard__detail--small">{t("subbotnikCard.detail5")}</span>
+								<span class="subbotnikCard__detail--bold">29.09.2024</span>
+							</p>
+						</div>
+						<button
+							type="button"
+							data-value="2"
+							id="subbotnikBuy"
+							class="subbotnikCard__button subbotnikCard__buy"
+						>
+							{t("subbotnikCard.btn")}
+						</button>
+					</div>
+				</div>
+			</article>
+		</div>
+	</section>
+	<WorkshopModal />
+</MainLayout>
+
+<script src="../assets/scripts/subbotnik.ts"></script>
