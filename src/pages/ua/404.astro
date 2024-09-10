@@ -1,0 +1,17 @@
+---
+import { getLangFromUrl, useTranslations } from "@/assets/i18n/utils";
+
+import MainLayout from "@/layouts/MainLayout.astro";
+
+const lang = getLangFromUrl(Astro.url);
+const locale = lang === "ru" ? "/" : "/ua/";
+const t = useTranslations(lang);
+---
+
+<MainLayout title={t("meta.title-home")} description={t("meta.description-home")}>
+	<section class="notFound">
+		<h1 class="notFound__title">{t("404.title")}</h1>
+		<p class="notFound__text">{t("404.text")}</p>
+		<a href={`${locale}`} class="link link--secondary">{t("404.link")}</a>
+	</section>
+</MainLayout>

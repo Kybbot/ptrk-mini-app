@@ -1,0 +1,25 @@
+.notFound__title {
+	font-size: 24px;
+	font-weight: 600;
+	line-height: 27px;
+	letter-spacing: -0.03em;
+	margin: 0 0 16px 0;
+}
+
+.notFound__text {
+	font-size: 14px;
+	line-height: 24px;
+	margin: 0 0 24px 0;
+}
+
+@media screen and (min-width: 768px) {
+	.notFound__title {
+		font-size: 36px;
+		line-height: 40px;
+	}
+
+	.notFound__text {
+		font-size: 16px;
+		line-height: 27px;
+	}
+}
